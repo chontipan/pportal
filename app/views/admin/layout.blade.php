@@ -1,0 +1,108 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: 56023_000
+ * Date: 3/30/2015
+ * Time: 17:52
+ */
+  ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Phayao Portal | Admin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Semantic -->
+    <link href="/semantic/dist/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div id="admin" class="container">
+
+    <div class="ui grid">
+
+        <div class="doubling two column row">
+            <div class="four wide column">
+                <img style="" class="img img-responsive" src="/images/footer-desc-logo.png" height="50" />
+                <h3>เมนู</h3>
+                <div class="ui vertical red menu">
+
+                    <a class="{{ Request::path()=='admin/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/manage') }}">
+                        <i class="grid layout icon"></i> จัดการจุดเชื่อมโยง(Link)
+                    </a>
+                    <a class="{{ Request::path()=='admin/link/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/link/create') }}">
+                        <i class="add square icon"></i> เพิ่มจุดเชื่อมโยง(Link)
+                    </a>
+                    <hr style="background-color: rgb(224, 55, 75);height: 3px">
+                    {{--EVENTS--}}
+                    <a class="{{ Request::path()=='admin/events/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/events/manage') }}">
+                        <i class="grid layout icon"></i> จัดการกิจกรรม(Event)
+                    </a>
+                    <a class="{{ Request::path()=='admin/events/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/events/create') }}">
+                        <i class="add square icon"></i> เพิ่มกิจกรรม(Event)
+                    </a>
+                    <hr style="background-color: rgb(224, 55, 75);height: 3px">
+                    {{--Gov--}}
+                    <a class="{{ Request::path()=='admin/gov/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/gov/manage') }}">
+                        <i class="grid layout icon"></i> จัดการหน่วยงาน
+                    </a>
+                    <a class="{{ Request::path()=='admin/gov/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/gov/create') }}">
+                        <i class="add square icon"></i> เพิ่มหน่วยงาน
+                    </a>
+                    <hr style="background-color: rgb(224, 55, 75);height: 3px">
+                    {{--Recommend--}}
+                    <a class="{{ Request::path()=='admin/recommend/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/recommend/manage') }}">
+                        <i class="grid layout icon"></i> จัดการ&nbsp;จุดเชื่อมโยงแนะนำ
+                    </a>
+                    <a class="{{ Request::path()=='admin/recommend/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/recommend/create') }}">
+                        <i class="add square icon"></i> เพิ่ม&nbsp;จุดเชื่อมโยงแนะนำ
+                    </a>
+                    <hr style="background-color: rgb(224, 55, 75);height: 3px">
+                    <a class="{{ Request::path()=='admin/logout' ? 'active' : '' }} red item" href="{{ URL::to('/admin/logout') }}">
+                        <i class="sign out icon"></i> ออกจากระบบ
+                    </a>
+                </div>
+            </div>
+            <div style="padding-top: 50px;" class="twelve wide column">
+@yield('content')
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/js/jquery-2.1.1.min.js"></script>
+<!-- Semantic -->
+<script src="/semantic/dist/semantic.min.js"></script>
+
+<script src="/js/app.js"></script>
+<script src="/js/datetimepicker/jquery.datetimepicker.js"></script>
+<script>
+    $('.ui.dropdown').dropdown();
+    $('.ui.checkbox').checkbox();
+    $('.dropdown')
+            .dropdown({
+                // you can use any ui transition
+                transition: 'drop'
+            });
+    $('.ui.modal')
+            .modal()
+    ;
+</script>
+@yield('javascript')
+
+
+</body>
+
+</html>
