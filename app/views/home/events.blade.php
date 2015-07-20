@@ -7,7 +7,7 @@
  */?>
 @extends('home.layout')
 @section('head')
-    <title>กิจกรรม | PHAYAO Portal</title>
+    <title>กิจกรรม | Phayao Portal</title>
 @stop
 @section('content')
     <div id="title-event" class="slide header">
