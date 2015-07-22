@@ -127,9 +127,6 @@
                                                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                                         <a href="{{$link->link}}" target="_blank" data-type="recommend" data-item="{{$link->id}}">
                                                             <div class="media">
-                                                                {{--<div class="media-left pull-left">
-                                                                    <img class="media-object" src="/uploads/{{$link->img}}" alt="{{$link->name}}">
-                                                                </div>--}}
                                                                 <div class="media-body">
                                                                     <h4 class="media-heading">{{$link->name}}</h4>
                                                                     <small class="">-{{$link->descript}}</small>
@@ -152,9 +149,6 @@
                                                                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                                                         <a href="{{$link->link}}" target="_blank" data-type="link" data-item="{{$link->id}}">
                                                                             <div class="media">
-                                                                                {{--<div class="media-left pull-left">
-                                                                                    <img class="media-object" src="<?php echo Config::get('app.subdir')?>/uploads/{{$link->img}}" alt="{{$link->name}}">
-                                                                                </div>--}}
                                                                                 <div class="media-body">
                                                                                     <h4 class="media-heading">{{$link->name}}</h4>
                                                                                     <small class="">-{{$link->descript}}</small>
@@ -227,9 +221,6 @@
                                                             <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                                                 <a href="{{$link->link}}" target="_blank" data-type="link" data-item="{{$link->id}}">
                                                                     <div class="media">
-                                                                        {{--<div class="media-left pull-left">
-                                                                            <img class="media-object" src="<?php echo Config::get('app.subdir')?>/uploads/{{$link->img}}" alt="{{$link->name}}">
-                                                                        </div>--}}
                                                                         <div class="media-body">
                                                                             <h4 class="media-heading">{{$link->name}}</h4>
                                                                             <small class="">-{{$link->descript}}</small>
