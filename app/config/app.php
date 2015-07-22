@@ -15,6 +15,7 @@ return array(
 
 	'debug' => false,
 
+    'subdir' => "/phayaoportal",
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL

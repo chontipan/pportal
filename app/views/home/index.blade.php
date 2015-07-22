@@ -26,14 +26,14 @@
                                     @foreach($data->MajorCategories as $mjc) <?php $g++;?>
                                     <li role="presentation" class="{{ $g==1 ? 'active' : '' }}"  data-toggle="tooltip" data-placement="bottom" title="{{$mjc->name}}">
                                         <a class="a-tab" href="#tab_{{$g}}" role="tab" data-toggle="tab">
-                                            <img src="images/major/{{$mjc->id}}.png" /><div class="title-tab">{{$mjc->name}}</div></a>
+                                            <img src="<?php echo Config::get('app.subdir')?>/images/major/{{$mjc->id}}.png" /><div class="title-tab">{{$mjc->name}}</div></a>
                                     </li>
                                     @endforeach
                                 @endif
                             @endforeach
                                 <li role="presentation" class=""  data-toggle="tooltip" data-placement="bottom" title="หน่วยงานราชการ">
                                     <a class="a-tab" href="#tab_gov" role="tab" data-toggle="tab">
-                                        <img src="images/gov_2.png" /><div class="title-tab">กระทรวง</div></a>
+                                        <img src="<?php echo Config::get('app.subdir')?>/images/gov_2.png" /><div class="title-tab">กระทรวง</div></a>
                                 </li>
                         </ul>
                     </div>
@@ -55,7 +55,7 @@
                                                             <a href="{{URL::to('/category/'.$mdc->id.'/update')}}">
                                                                 <div class="media">
                                                                     <div class="media-left pull-left">
-                                                                        <img class="media-object" src="images/middle/{{$mdc->id}}.png" alt="">
+                                                                        <img class="media-object" src="<?php echo Config::get('app.subdir')?>/images/middle/{{$mdc->id}}.png" alt="">
                                                                     </div>
                                                                     <div class="media-body">
                                                                         <h4 class="media-heading">{{$mdc->name}}</h4>
@@ -78,7 +78,7 @@
                                                         <a href="{{URL::to('/government/'.$gov->id.'/show')}}">
                                                             <div class="media">
                                                                 {{--<div class="media-left pull-left">
-                                                                    <img class="media-object" src="images/middle/{{$mdc->id}}.png" alt="">
+                                                                    <img class="media-object" src="<?php echo Config::get('app.subdir')?>/images/middle/{{$mdc->id}}.png" alt="">
                                                                 </div>--}}
                                                                 <div class="media-body">
                                                                     <h4 class="media-heading">{{$gov->ministry}}</h4>
@@ -153,7 +153,7 @@
                                                                         <a href="{{$link->link}}" target="_blank" data-type="link" data-item="{{$link->id}}">
                                                                             <div class="media">
                                                                                 {{--<div class="media-left pull-left">
-                                                                                    <img class="media-object" src="/uploads/{{$link->img}}" alt="{{$link->name}}">
+                                                                                    <img class="media-object" src="<?php echo Config::get('app.subdir')?>/uploads/{{$link->img}}" alt="{{$link->name}}">
                                                                                 </div>--}}
                                                                                 <div class="media-body">
                                                                                     <h4 class="media-heading">{{$link->name}}</h4>
@@ -198,7 +198,7 @@
                                     @foreach($data->MajorCategories as $mjc) <?php $g++;?>
                                     <li role="presentation" class="{{ $g==1 ? 'active' : '' }}"  data-toggle="tooltip" data-placement="bottom" title="{{$mjc->name}}">
                                         <a class="a-tab" href="#tab_up_{{$g}}" role="tab" data-toggle="tab">
-                                            <img src="images/major/{{$mjc->id}}.png" /><div class="title-tab">{{$mjc->name}}</div></a>
+                                            <img src="<?php echo Config::get('app.subdir')?>/images/major/{{$mjc->id}}.png" /><div class="title-tab">{{$mjc->name}}</div></a>
                                     </li>
                                     @endforeach
                                 @endif
@@ -228,7 +228,7 @@
                                                                 <a href="{{$link->link}}" target="_blank" data-type="link" data-item="{{$link->id}}">
                                                                     <div class="media">
                                                                         {{--<div class="media-left pull-left">
-                                                                            <img class="media-object" src="/uploads/{{$link->img}}" alt="{{$link->name}}">
+                                                                            <img class="media-object" src="<?php echo Config::get('app.subdir')?>/uploads/{{$link->img}}" alt="{{$link->name}}">
                                                                         </div>--}}
                                                                         <div class="media-body">
                                                                             <h4 class="media-heading">{{$link->name}}</h4>

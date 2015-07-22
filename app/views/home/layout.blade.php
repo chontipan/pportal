@@ -20,12 +20,12 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     {{--<link rel="icon" type="image/png" href="images/favicon.png">--}}
-    <link rel="stylesheet" href="/css/jquery-ui.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/animate.min.css">
-    <link rel="stylesheet" href="/css/ihover.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/jquery-ui.css">
+    <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/animate.min.css">
+    <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/ihover.css">
+    <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/main.css">
 
 </head>
 <body>
@@ -33,8 +33,7 @@
     <div id="headd" class="container head-logo hidden-xs">
         <div class="ct-logo">
             <a href="http://{{ Request::getHttpHost() }}">
-                {{--<img style="max-width:35px;float: left;" class="img img-responsive" src="images/logo21.png" height="50">--}}
-                <img style="" class="img img-responsive" src="/images/main-logo.png" height="50">
+                <img style="" class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/main-logo.png" height="50">
                 <div class="slogan">
                     พะเยาเริ่มที่นี่
                 </div>
@@ -68,8 +67,8 @@
                     <div class="visible-xs nav-logo">
                         <a href="http://{{ Request::getHttpHost() }}">
 
-                            <img class="img img-responsive" src="/images/logo21.png" height="50">
-                            <img class="img img-responsive" src="/images/main-logo.png" height="50">
+                            <img class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/logo21.png" height="50">
+                            <img class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/main-logo.png" height="50">
 
 
                         </a>
@@ -135,27 +134,27 @@
     <ul class="menu">
         <li class="">
             <a class="menu-gov" href="{{ Request::path()=='/' ? '#e-services' : 'http://'.Request::getHttpHost().'/#e-services' }}">
-                <img class="menu-img" src="/images/gov1.png">
+                <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/gov1.png">
                 <span href="#e-services" class="menu-title">บริการภาครัฐ</span>
             </a>
         </li>
 
         <li class="">
             <a class="menu-travel" href="{{ Request::path()=='/' ? '#trip' : 'http://'.Request::getHttpHost().'/#trip' }}">
-                <img class="menu-img" src="/images/traveler2.png">
+                <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/traveler2.png">
                 <span href="#trip" class="menu-title">ท่องเที่ยว</span>
             </a>
         </li>
 
         <li class="">
             <a class="menu-uni" href="{{ Request::path()=='/' ? '#up' : 'http://'.Request::getHttpHost().'/#up' }}">
-                <img class="menu-img" src="/images/university3.png">
+                <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/university3.png">
                 <span href="#e-services" class="menu-title">มหาวิทยาลัยพะเยา</span>
             </a>
         </li>
         <li class="">
             <a class="menu-uni" href="{{ Request::path()=='/' ? '/events' : 'http://'.Request::getHttpHost().'/events' }}">
-                <img class="menu-img" src="/images/events.png">
+                <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/events.png">
                 <span href="#events" class="menu-title">กิจกรรม</span>
             </a>
         </li>
@@ -206,8 +205,8 @@
         <!--    <div style="text-align: -webkit-center;" class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                 <div class="foot-logo">
                     <a href="http://{{ Request::getHttpHost() }}">
-                        <img style="max-width: 49px;float: left;" class="img img-responsive" src="/images/footer-logo1.png" height="50">
-                        <img style="" class="img img-responsive" src="/images/footer-desc-logo.png" height="50">
+                        <img style="max-width: 49px;float: left;" class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/footer-logo1.png" height="50">
+                        <img style="" class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/footer-desc-logo.png" height="50">
                     </a>
                 </div>
             </div>-->
@@ -232,13 +231,13 @@
 
 {{--start javascrict--}}
 
-<script src="/js/jquery.js"></script>
-<script src="/js/jquery.lazyload.js"></script>
-<script src="/js/jquery.simple-text-rotator.js"></script>
-<script type="text/javascript" src="/js/custom.js"></script>
-<script src="/js/jquery-ui.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery.simpleWeather.js"></script>
+<script src="<?php echo Config::get('app.subdir')?>/js/jquery.js"></script>
+<script src="<?php echo Config::get('app.subdir')?>/js/jquery.lazyload.js"></script>
+<script src="<?php echo Config::get('app.subdir')?>/js/jquery.simple-text-rotator.js"></script>
+<script type="text/javascript" src="<?php echo Config::get('app.subdir')?>/js/custom.js"></script>
+<script src="<?php echo Config::get('app.subdir')?>/js/jquery-ui.js"></script>
+<script src="<?php echo Config::get('app.subdir')?>/js/bootstrap.min.js"></script>
+<script src="<?php echo Config::get('app.subdir')?>/js/jquery.simpleWeather.js"></script>
 @yield('javascript')
 <script>
     var root = location.protocol + '//' + location.host;
