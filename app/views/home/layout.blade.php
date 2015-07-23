@@ -247,7 +247,7 @@
 <script src="<?php echo Config::get('app.subdir')?>/js/jquery.simpleWeather.js"></script>
 @yield('javascript')
 <script>
-    var root = location.protocol + '//' + location.host + '/phayaoportal';
+    var root = location.protocol + '//' + location.host;
     var input=0;
 
 
