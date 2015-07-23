@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    {{--<link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/images/favicon.png">--}}
+    <link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/images/favicon.png">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/jquery-ui.css">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/font-awesome.min.css">
@@ -30,7 +30,7 @@
 <header class="p-header site-header" id="header">
     <div id="headd" class="container head-logo hidden-xs">
         <div class="ct-logo">
-            <a href="http://{{ Request::getHttpHost() }}">
+            <a href="{{url('/') }}">
                 <img style="" class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/main-logo.png" height="50">
                 <div class="slogan">
                     พะเยาเริ่มที่นี่
@@ -48,7 +48,7 @@
             </a>
         </div>
         <div class="feedback">
-            <a href="#">feedback</a>
+            <a href="http://goo.gl/forms/nAopGkMd1k">feedback</a>
         </div>
 
     </div>
@@ -63,13 +63,11 @@
                     </button>
 
                     <div class="visible-xs nav-logo">
-                        <a href="http://{{ Request::getHttpHost() }}">
-
+                        <a href="{{url('/') }}">
                             <img class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/logo21.png" height="50">
                             <img class="img img-responsive" src="<?php echo Config::get('app.subdir')?>/images/main-logo.png" height="50">
-
-
                         </a>
+                        <div class="slogan">พะเยาเริ่มที่นี้</div>
                     </div>
 
                 </div>
