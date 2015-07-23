@@ -12,6 +12,10 @@
 
     @yield('head')
     <meta charset="utf-8">
+    <meta property="og:title" content="พะเยา เริ่มที่นี้" />
+    <meta property="og:description" content="พะเยา เริ่มที่นี้">
+    <meta property="og:image" content="https://www.cidtec.ict.up.ac.th/phayaoportal/images/favi.png">
+
     <title>Phayao Portal พะเยาเริ่มที่นี้</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
