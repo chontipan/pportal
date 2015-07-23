@@ -5,8 +5,10 @@
  * Date: 6/29/2015
  * Time: 04:57
  */?>
+ @extends('home.layout')
+
 @section('head')
-    <title>404 ไม่พบหน้าที่คุณต้องการ | PHAYAO Portal</title>
+    <title>404 ไม่พบหน้าที่คุณต้องการ | Phayao Portal</title>
 @stop
 @section('content')
     <div id="title-event" class="slide header">
