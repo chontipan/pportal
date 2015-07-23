@@ -106,9 +106,12 @@
                         </li>
                         <li>
                             <a class="{{Request::path()=='events' ? 'active' : ''}}" href="{{url('/events')}}">
+                              @if(isset($countEventLive))
                                   <span class="ihome-event home">กิจกรรม{{$countEventLive != 0  ? '<span class="badge">'. $countEventLive.'</span>':''}}</span>
-
-
+                              @endif
+                              @if(!isset($countEventLive))
+                              <span class="ihome-event home">กิจกรรม</span>
+                              @endif
                             </a>
                         </li>
                     </ul>
@@ -230,7 +233,7 @@
 
 
 </div>
-  <div> 2015 ICT@University of Phayao All rights reserved.</div>
+  <div style="padding-top: 10px"> 2015 ICT@University of Phayao All rights reserved.</div>
 </footer>
 
 <!-- end contact -->

@@ -52,6 +52,9 @@ Route::get('/events/{id}/show','HomeController@getEvent');
 Route::post('/filter_events','HomeController@filterEvents');
 Route::get('/filter_events','HomeController@filterEvents');
 
+Route::post('/filter_events2','HomeController@filterEvents2');
+Route::get('/filter_events2','HomeController@filterEvents2');
+
 //เพิ่ม สถิติเมื่อคลิ๊กลิ้ง
 Route::post('/addfrequency','HomeController@postFrequency');
 Route::get('/addfrequency',function(){

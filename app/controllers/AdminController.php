@@ -70,7 +70,9 @@ class AdminController extends BaseController {
             'name' => 'required|unique:events,name',
             'img' => 'required|image|mimes:jpg,jpeg,png,gif',
             'start'=>'required',
-            'finish'=>'required'
+            'finish'=>'required',
+            'location'=>'required',
+            'where'=>'required'
         );
 
         $validator = Validator::make(Input::all(),$rules);
@@ -106,6 +108,7 @@ class AdminController extends BaseController {
                 $event->img = $archivo;
                 $event->descript = Input::get('descript');
                 $event->where = Input::get('where');
+                $event->location = Input::get('location');
                 $event->contact = Input::get('contact');
                 if(Input::has('repeat')){
                     $event->repeat = 1;
@@ -145,11 +148,11 @@ class AdminController extends BaseController {
         $rules = array(
             'name' => 'required|unique:events,name,'.$id,
             'img' => 'image|mimes:jpg,jpeg,png,gif',
-
             'start'=>'required',
             'finish'=>'required',
             'where' =>'required',
-            'contact'=>'required'
+            'contact'=>'required',
+            'location' =>'required'
         );
 
         $validator = Validator::make(Input::all(),$rules);
@@ -169,7 +172,7 @@ class AdminController extends BaseController {
             if(Input::hasFile('img')){
                 $event = Events::find($id);
                 if($event->img){
-                    $d=File::delete('uploads/events/'.$event->img);
+                    $d=File::delete('phayaoportal/uploads/events/'.$event->img);
                 }
 
                 $file =Input::file('img');
@@ -193,6 +196,7 @@ class AdminController extends BaseController {
                     $event->img = $archivo;
                     $event->descript = Input::get('descript');
                     $event->where = Input::get('where');
+                    $event->where = Input::get('location');
                     $event->contact = Input::get('contact');
                     if(Input::has('repeat')){
                         $event->repeat = 1;
@@ -221,6 +225,7 @@ class AdminController extends BaseController {
                     $event->finish = Input::get('finish');
                     $event->descript = Input::get('descript');
                     $event->where = Input::get('where');
+                    $event->where = Input::get('location');
                     $event->contact = Input::get('contact');
                     if(Input::has('repeat')){
                         $event->repeat = 1;
@@ -343,7 +348,7 @@ class AdminController extends BaseController {
     public function postDeleteLink($id){
         $del = Link::findOrFail($id);
         if(isset($del->img)){
-            $check=File::delete('uploads/'.$del->img);
+            $check=File::delete('phayaoportal/uploads/'.$del->img);
         }
         $name=$del->name;
         $del->delete();
@@ -400,7 +405,7 @@ class AdminController extends BaseController {
             if(Input::hasFile('img')){
                 $link = Link::find($id);
                 if($link->img){
-                    File::delete('uploads/'.$link->img);
+                    File::delete('phayaoportal/uploads/'.$link->img);
                 }
 
                 $file =Input::file('img');

@@ -33,7 +33,7 @@
                                                     <?php $h=0;?>
                                                     <div class="row">
                                                         @foreach($mjc->MiddleCategories as $mdc)
-                                                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                                                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                                                                 <a href="{{URL::to('/category/'.$mdc->id.'/update')}}">
                                                                     <div class="media">
                                                                         <div class="media-left pull-left">

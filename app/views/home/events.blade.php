@@ -43,10 +43,10 @@
                     <div style="text-align:-webkit-left;min-height: 51vh;" class="row content-event">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="tab_live">
-
+                              @if($countEvent['live']>0)
                               <div>ค้นหากิจกรรมตามอำเภอ
                               <br>        <select class="ui dropdown" name="location" id="location">
-                                          <option value="">---เลือกอำเภอ---</option>
+                                          <option selected="selected" value="ทั้งหมด">ทั้งหมด</option>
                                           <option value="เมือง">เมือง</option>
                                           <option value="เชียงคำ">เชียงคำ</option>
                                           <option value="ดอกคำใต้">ดอกคำใต้</option>
@@ -55,9 +55,10 @@
                                           <option value="ปง">ปง</option>
                                           <option value="ภูซาง">ภูซาง</option>
                                           <option value="เชียงม่วน">เชียงม่วน</option>
-                                          <option value="ทั้งหมด">ทั้งหมด</option>
+
                                       </select>
                             </div>
+                            @endif
 
                             <div id="display" name="display">
                                 @foreach($events as $event)
@@ -92,10 +93,10 @@
                               </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="tab_future">
-
+                              @if($countEvent['future']>0)
                               <div>ค้นหากิจกรรมตามอำเภอ
-                              <br>        <select class="ui dropdown" name="location" id="location">
-                                          <option value="">---เลือกอำเภอ---</option>
+                              <br>        <select class="ui dropdown" name="location2" id="location2">
+                                          <option selected="selected" value="ทั้งหมด">ทั้งหมด</option>
                                           <option value="เมือง">เมือง</option>
                                           <option value="เชียงคำ">เชียงคำ</option>
                                           <option value="ดอกคำใต้">ดอกคำใต้</option>
@@ -104,11 +105,11 @@
                                           <option value="ปง">ปง</option>
                                           <option value="ภูซาง">ภูซาง</option>
                                           <option value="เชียงม่วน">เชียงม่วน</option>
-                                          <option value="ทั้งหมด">ทั้งหมด</option>
+
                                       </select>
                             </div>
-
-                            <div id="display" name="display">
+                            @endif
+                            <div id="display2" name="display2">
                                 @foreach($events as $event)
                                     @if($event->status!=-2&&$event->status==-3)
                                         <div class="col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-4">
@@ -126,10 +127,13 @@
                                                     <div class="event-desc">
                                                         @if(!$event->repeat)
                                                             <p>{{$event->format}}</p>
-                                                            <p>{{$event->where}}</p>
+                                                            <p>@ {{$event->where}}, {{$event->location}}</p>
+
+
                                                         @else
                                                             <p>ทุก{{$event->day}} เริ่ม {{$event->start}}</p>
-                                                            <p>{{$event->where}}</p>
+                                                            <p>@ {{$event->where}}, {{$event->location}}</p>
+
                                                         @endif
                                                     </div>
                                                 </a>
@@ -163,6 +167,21 @@
                 return false;
             });
         });
+
+        jQuery(function($) {
+                jQuery('body').on('change','#location2',function(){
+                    jQuery.ajax({
+                        'type':'POST',
+                        'url':'filter_events2',
+                        'cache':false,
+                        'data': {location:$("#location2").val()},
+                        'success':function(html){
+                            $("#display2").html(html);
+                        }
+                    });
+                    return false;
+                });
+            });
 
 
 

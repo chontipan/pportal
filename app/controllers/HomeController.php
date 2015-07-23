@@ -190,6 +190,8 @@ class HomeController extends BaseController {
                     "ธันวาคม"
                 );
                 $strMonthThai=$strMonthCut[$strMonth];
+                $strMonthFinish= date("n",strtotime($event->finish));
+
                 $event->$times[$i]="$strDay $strMonthThai - $strDayFinish $strMonthCut[$strMonthFinish] $strYear เวลา $strHour:$strMinute น.";
                 //$event['stat'] = 'newenw';
             }
@@ -197,6 +199,7 @@ class HomeController extends BaseController {
         // generate breadcrumbs
         $this->breadcrumbs->push('กิจกรรม',URL::to('/events'));
         $this->breadcrumbs->generate();
+
 
         return View::make('home.events')->with('events',$events)->with('countEvent',$countEvent);
     }
@@ -303,7 +306,7 @@ class HomeController extends BaseController {
             $results = new ResultCollection($results, $instance = new Link());
            //dd($results);
 
-      
+
             Session::flash('search',$terms);
             return View::make('home.ajax-search')->with('results',$results);
         }else {
@@ -426,6 +429,7 @@ class HomeController extends BaseController {
     public function filterEvents()
     {
       $location=Input::get('location');
+
       if($location=="ทั้งหมด"){
           $events = Events::orderBy('start','ASC')->get();
       }else{
@@ -564,6 +568,7 @@ class HomeController extends BaseController {
                   "ธันวาคม"
               );
               $strMonthThai=$strMonthCut[$strMonth];
+              $strMonthFinish= date("n",strtotime($event->finish));
               $event->$times[$i]="$strDay $strMonthThai - $strDayFinish $strMonthCut[$strMonthFinish] $strYear เวลา $strHour:$strMinute น.";
               //$event['stat'] = 'newenw';
           }
@@ -574,7 +579,7 @@ class HomeController extends BaseController {
               if($event->status!=-2&&$event->status==-1){
                   echo "<div class=\"col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-4\">
                       <div class=\"feature\">
-                          <a href=\"/events/{$event->id}/show\">
+                          <a href=\"/phayaoportal/events/{$event->id}/show\">
                               <div class=\"event-title\">
                                   {$event->name}
                               </div>
@@ -605,6 +610,188 @@ class HomeController extends BaseController {
   }
 
 
+  public function filterEvents2()
+  {
+    $location=Input::get('location');
+
+    if($location=="ทั้งหมด"){
+        $events = Events::orderBy('start','ASC')->get();
+    }else{
+        $events = Events::where('location',$location)->orderBy('start','ASC')->get();
+    }
+    foreach($events as $event){
+        date_default_timezone_set('Asia/Bangkok');
+        $date11 = $event->start;
+        $date21 = $event->finish;
+        if(date("Y-m-d H:i:s") < $date11){
+            $date1 = new DateTime($date11);
+            $date2 = new DateTime(date("Y-m-d H:i:s"));
+            $interval = $date2->diff($date1);
+            if($interval->days==0){
+                $event['status'] = "-3";
+                $event['hr'] = $interval->h;
+            }else{
+                //$event['status'] = $interval->days;
+                  $event['status'] = "-3";
+            }
+            //$event['status'] = $interval->days;
+        }elseif(date("Y-m-d H:i:s")>=$date11&&date("Y-m-d H:i:s")<=$date21){
+            $event['status'] = "-1";
+        }elseif(date("Y-m-d H:i:s") >= $date21){
+            $event['status'] = "-2";
+        }else{
+            $event['status'] = "9999";
+        }
+        $start = new DateTime($date11);
+        $finish = new DateTime($date21);
+        $interval1 = $start->diff($finish);
+        //dd($event->start);
+        if($interval1->days < 1){
+            $strDate = $event->start;
+            $strYear = date("Y",strtotime($strDate))+543;
+            $strMonth= date("n",strtotime($strDate));
+            $strDay= date("j",strtotime($strDate));
+            $strHour= date("H",strtotime($strDate));
+            $strMinute= date("i",strtotime($strDate));
+            $strSeconds= date("s",strtotime($strDate));
+            $strMonthCut = Array(
+                "",
+                "มกราคม",
+                "กุมภาพันธ์",
+                "มีนาคม",
+                "เมษายน",
+                "พฤษภาคม",
+                "มิถุนายน",
+                "กรกฎาคม",
+                "สิงหาคม",
+                "กันยายน",
+                "ตุลาคม ",
+                "พฤศจิกายน",
+                "ธันวาคม"
+            );
+            $strMonthThai=$strMonthCut[$strMonth];
+            $event['format']="$strDay $strMonthThai $strYear";
+        }elseif($interval1->days > 0 ){
+            if($strMonth= date("n",strtotime($event->start)) == $strMonth= date("n",strtotime($event->finish))){
+                $strDate = $event->start;
+                $strYear = date("Y",strtotime($strDate))+543;
+                $strMonth= date("n",strtotime($strDate));
+                $strDay= date("j",strtotime($strDate));
+                $strHour= date("H",strtotime($strDate));
+                $strMinute= date("i",strtotime($strDate));
+                $strSeconds= date("s",strtotime($strDate));
+                $strMonthCut = Array(
+                    "",
+                    "มกราคม",
+                    "กุมภาพันธ์",
+                    "มีนาคม",
+                    "เมษายน",
+                    "พฤษภาคม",
+                    "มิถุนายน",
+                    "กรกฎาคม",
+                    "สิงหาคม",
+                    "กันยายน",
+                    "ตุลาคม ",
+                    "พฤศจิกายน",
+                    "ธันวาคม"
+                );
+                $strMonthThai=$strMonthCut[$strMonth];
+                $strDayFinish= date("j",strtotime($event->finish));
+                $event['format']="$strDay - $strDayFinish $strMonthThai $strYear";
+            }else{
+                $strDate = $event->start;
+                $strYear = date("Y",strtotime($strDate))+543;
+                $strMonth= date("n",strtotime($strDate));
+                $strDay= date("j",strtotime($strDate));
+                $strHour= date("H",strtotime($strDate));
+                $strMinute= date("i",strtotime($strDate));
+                $strSeconds= date("s",strtotime($strDate));
+                $strMonthCut = Array(
+                    "",
+                    "มกราคม",
+                    "กุมภาพันธ์",
+                    "มีนาคม",
+                    "เมษายน",
+                    "พฤษภาคม",
+                    "มิถุนายน",
+                    "กรกฎาคม",
+                    "สิงหาคม",
+                    "กันยายน",
+                    "ตุลาคม ",
+                    "พฤศจิกายน",
+                    "ธันวาคม"
+                );
+                $strMonthThai=$strMonthCut[$strMonth];
+                $strDayFinish= date("j",strtotime($event->finish));
+                $strMonthFinish= date("n",strtotime($event->finish));
+                $event['format']="$strDay $strMonthThai - $strDayFinish $strMonthCut[$strMonthFinish] $strYear";
+            }
+        }
+        $times = array("start","finish");
+        for($i = 0;$i < sizeof($times);$i++){
+            $strDate = $event->$times[$i];
+            $strYear = date("Y",strtotime($strDate))+543;
+            $strMonth= date("n",strtotime($strDate));
+            $strDay= date("j",strtotime($strDate));
+            $strHour= date("H",strtotime($strDate));
+            $strMinute= date("i",strtotime($strDate));
+            $strSeconds= date("s",strtotime($strDate));
+            $strMonthCut = Array(
+                "",
+                "มกราคม",
+                "กุมภาพันธ์",
+                "มีนาคม",
+                "เมษายน",
+                "พฤษภาคม",
+                "มิถุนายน",
+                "กรกฎาคม",
+                "สิงหาคม",
+                "กันยายน",
+                "ตุลาคม ",
+                "พฤศจิกายน",
+                "ธันวาคม"
+            );
+            $strMonthThai=$strMonthCut[$strMonth];
+            $strMonthFinish= date("n",strtotime($event->finish));
+            $event->$times[$i]="$strDay $strMonthThai - $strDayFinish $strMonthCut[$strMonthFinish] $strYear เวลา $strHour:$strMinute น.";
+            //$event['stat'] = 'newenw';
+        }
+      }
+      $subdir = Config::get('app.subdir');
+        foreach($events as $event){
+
+            if($event->status!=-2&&$event->status==-3){
+                echo "<div class=\"col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-4\">
+                    <div class=\"feature\">
+                        <a href=\"/phayaoportal/events/{$event->id}/show\">
+                            <div class=\"event-title\">
+                                {$event->name}
+                            </div>
+                            <div class=\"event-img\">
+                                <img class=\"lazy img-responsive\" data-original=\"/{$subdir}/uploads/events/{$event->img}\" src=\"{$subdir}/uploads/events/{$event->img}\" style=\"display: block;\">
+
+                            </div>
+                            <div class=\"event-desc\">";
+                               if(!$event->repeat){
+                                    echo "<p>{$event->format}</p>
+                                    <p>@ {$event->where}, {$event->location}</p>";
+                                  }
+
+                              else{
+                                    echo "<p>ทุก{$event->day} เริ่ม {$event->start}</p>
+                                    <p>@ {$event->where}, {$event->location}</p>";
+                                  }
+
+                          echo"</div>
+                        </a>
+                    </div>
+                </div>";
+        }
+
+
+
+  }
+}
 
 
 
