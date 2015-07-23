@@ -19,9 +19,9 @@
     <meta name="description" content="">
 
     <!-- Semantic -->
-    <link href="/semantic/dist/semantic.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <link href="/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+    <link href="{{Config::get('app.subdir')}}/semantic/dist/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{{Config::get('app.subdir')}}/css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{Config::get('app.subdir')}}/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 
         <div class="doubling two column row">
             <div class="four wide column">
-                <img style="" class="img img-responsive" src="/images/footer-desc-logo.png" height="50" />
+                <img style="" class="img img-responsive" src="{{Config::get('app.subdir')}}/images/footer-desc-logo.png" height="50" />
                 <h3>เมนู</h3>
                 <div class="ui vertical red menu">
 
@@ -80,14 +80,14 @@
     </div>
 </div>
 
-<script src="/js/jquery.js"></script>
+<script src="{{Config::get('app.subdir')}}/js/jquery.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="{{Config::get('app.subdir')}}/js/jquery-2.1.1.min.js"></script>
 <!-- Semantic -->
-<script src="/semantic/dist/semantic.min.js"></script>
+<script src="{{Config::get('app.subdir')}}/semantic/dist/semantic.min.js"></script>
 
-<script src="/js/app.js"></script>
-<script src="/js/datetimepicker/jquery.datetimepicker.js"></script>
+<script src="{{Config::get('app.subdir')}}/js/app.js"></script>
+<script src="{{Config::get('app.subdir')}}/js/datetimepicker/jquery.datetimepicker.js"></script>
 <script>
     $('.ui.dropdown').dropdown();
     $('.ui.checkbox').checkbox();

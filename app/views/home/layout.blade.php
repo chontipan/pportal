@@ -79,27 +79,27 @@
                 <div class="collapse navbar-collapse" id="main-menu">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a class="{{Request::path()=='/' ? 'active' : ''}}" id="tab-home" href="http://{{ Request::getHttpHost() }}">
+                            <a class="{{Request::path()=='/' ? 'active' : ''}}" id="tab-home" href="{{url('/') }}">
                                 <span class="home ihome-home">หน้าแรก</span>
                             </a>
                         </li>
                         <li>
-                            <a id="tab-gov" href="{{ Request::path()=='/' ? '#e-services' : 'http://'.Request::getHttpHost().'/#e-services' }}">
+                            <a id="tab-gov" href="{{ Request::path()=='/' ? '#e-services' :  url('/#e-services') }}">
                                 <span class="ihome-gov home home">บริการภาครัฐ</span>
                             </a>
                         </li>
                         <li>
-                            <a id="tab-travel" href="{{ Request::path()=='/' ? '#trip' : 'http://'.Request::getHttpHost().'/#trip' }}">
+                            <a id="tab-travel" href="{{ Request::path()=='/' ? '#trip' : url('/#trip') }}">
                                 <span class="ihome-travel home">ท่องเที่ยว</span>
                             </a>
                         </li>
                         <li>
-                            <a id="tab-uni" href="{{ Request::path()=='/' ? '#up' : 'http://'.Request::getHttpHost().'/#up' }}">
+                            <a id="tab-uni" href="{{ Request::path()=='/' ? '#up' : url('/#up') }}">
                                 <span class="ihome-uni home">มหาวิทยาลัยพะเยา</span>
                             </a>
                         </li>
                         <li>
-                            <a class="{{Request::path()=='events' ? 'active' : ''}}" href="{{'http://'.Request::getHttpHost().'/events'}}">
+                            <a class="{{Request::path()=='events' ? 'active' : ''}}" href="{{url('/events')}}">
                                   <span class="ihome-event home">กิจกรรม{{$countEventLive != 0  ? '<span class="badge">'. $countEventLive.'</span>':''}}</span>
                         
 
@@ -133,27 +133,27 @@
 <div class="nav-menu hidden-xs">
     <ul class="menu">
         <li class="">
-            <a class="menu-gov" href="{{ Request::path()=='/' ? '#e-services' : 'http://'.Request::getHttpHost().'/#e-services' }}">
+            <a class="menu-gov" href="{{url('/#e-services')}}">
                 <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/gov1.png">
                 <span href="#e-services" class="menu-title">บริการภาครัฐ</span>
             </a>
         </li>
 
         <li class="">
-            <a class="menu-travel" href="{{ Request::path()=='/' ? '#trip' : 'http://'.Request::getHttpHost().'/#trip' }}">
+            <a class="menu-travel" href="{{url('/#trip')}}">
                 <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/traveler2.png">
                 <span href="#trip" class="menu-title">ท่องเที่ยว</span>
             </a>
         </li>
 
         <li class="">
-            <a class="menu-uni" href="{{ Request::path()=='/' ? '#up' : 'http://'.Request::getHttpHost().'/#up' }}">
+            <a class="menu-uni" href="{{url('/#up')}}">
                 <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/university3.png">
                 <span href="#e-services" class="menu-title">มหาวิทยาลัยพะเยา</span>
             </a>
         </li>
         <li class="">
-            <a class="menu-uni" href="{{ Request::path()=='/' ? '/events' : 'http://'.Request::getHttpHost().'/events' }}">
+            <a class="menu-uni" href="{{url('/events')}}">
                 <img class="menu-img" src="<?php echo Config::get('app.subdir')?>/images/events.png">
                 <span href="#events" class="menu-title">กิจกรรม</span>
             </a>

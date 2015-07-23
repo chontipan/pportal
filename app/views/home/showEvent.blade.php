@@ -33,7 +33,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-6">
                                     <div class="event-img-left">
-                                        <img class="img img-responsive" src="/uploads/events/{{$event->img}}">
+                                        <img class="img img-responsive" src="{{Config::get('app.subdir')}}/uploads/events/{{$event->img}}">
                                     </div>
                                 </div>
                                 <div style="text-align:-webkit-left;  padding: 18px;" class="col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-6">

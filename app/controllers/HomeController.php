@@ -567,7 +567,7 @@ class HomeController extends BaseController {
               //$event['stat'] = 'newenw';
           }
         }
-
+        $subdir = Config::get('app.subdir');
           foreach($events as $event){
 
               if($event->status!=-2&&$event->status==-1){
@@ -578,7 +578,7 @@ class HomeController extends BaseController {
                                   {$event->name}
                               </div>
                               <div class=\"event-img\">
-                                  <img class=\"lazy img-responsive\" data-original=\"/uploads/events/{$event->img}\" alt=\"BMW M1 Hood\" src=\"/uploads/events/{$event->img}\" style=\"display: block;\">
+                                  <img class=\"lazy img-responsive\" data-original=\"/{$subdir}/uploads/events/{$event->img}\" src=\"{$subdir}/uploads/events/{$event->img}\" style=\"display: block;\">
 
                               </div>
                               <div class=\"event-desc\">";

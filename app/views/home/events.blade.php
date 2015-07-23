@@ -64,12 +64,12 @@
                                     @if($event->status!=-2&&$event->status==-1)
                                         <div class="col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-4">
                                             <div class="feature">
-                                                <a href="/events/{{$event->id}}/show">
+                                                <a href="{{url("/events/$event->id/show")}}">
                                                     <div class="event-title">
                                                         {{$event->name}}
                                                     </div>
                                                     <div class="event-img">
-                                                        <img class="lazy img-responsive" data-original="/uploads/events/{{$event->img}}" alt="BMW M1 Hood" src="/uploads/events/{{$event->img}}" style="display: block;">
+                                                        <img class="lazy img-responsive" data-original="{{Config::get('app.subdir')}}/uploads/events/{{$event->img}}" src="{{Config::get('app.subdir')}}/uploads/events/{{$event->img}}" style="display: block;">
 
                                                     </div>
                                                     <div class="event-desc">
@@ -113,13 +113,12 @@
                                     @if($event->status!=-2&&$event->status==-3)
                                         <div class="col-xs-12 col-sx-6 col-sm-6 col-md-6 col-lg-4">
                                             <div class="feature">
-                                                <a href="/events/{{$event->id}}/show">
+                                                <a href="{{url("/events/$event->id/show")}}">
                                                     <div class="event-title">
                                                         {{$event->name}}
                                                     </div>
                                                     <div class="event-img">
-                                                      <!--  <img class="img img-responsive" src="/uploads/events/{{$event->img}}"> -->
-                                                        <img class="lazy img-responsive" data-original="/uploads/events/{{$event->img}}" alt="BMW M1 Hood" src="/uploads/events/{{$event->img}}" style="display: block;">
+                                                        <img class="lazy img-responsive" data-original="{{Config::get('app.subdir')}}/uploads/events/{{$event->img}}" src="{{Config::get('app.subdir')}}/uploads/events/{{$event->img}}" style="display: block;">
 
 
 

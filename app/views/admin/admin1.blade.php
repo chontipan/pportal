@@ -51,9 +51,9 @@
                                </td>
                                <td style="word-break:break-all;">{{ $link->link }}</td>
                                <td class="collapsing">
-                                   <a href="/admin/link/{{$link->id}}/show"><i class="search teal icon"></i></a>
-                                   <a href="/admin/link/{{$link->id}}/update"><i class="configure teal icon"></i></a>
-                                   <a class="del" href="/admin/link/{{ $link->id }}/delete"><i class="remove teal icon"></i></a>
+                                   <a href="{{Config::get('app.subdir')}}/admin/link/{{$link->id}}/show"><i class="search teal icon"></i></a>
+                                   <a href="{{Config::get('app.subdir')}}/admin/link/{{$link->id}}/update"><i class="configure teal icon"></i></a>
+                                   <a class="del" href="{{Config::get('app.subdir')}}/admin/link/{{ $link->id }}/delete"><i class="remove teal icon"></i></a>
                                </td>
                            </tr>
                            <?php endforeach;?>

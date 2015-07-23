@@ -1,11 +1,11 @@
 
 @font-face {
     font-family: 'supermarketregular';
-    src: url('/fonts/supermarket.eot');
-    src: url('/fonts/supermarket.eot?#iefix') format('embedded-opentype'),
-    url('/fonts/supermarket.woff2') format('woff2'),
-    url('/fonts/supermarket.woff') format('woff'),
-    url('/fonts/supermarket.svg#supermarketregular') format('svg');
+    src: url('../fonts/supermarket.eot');
+    src: url('../fonts/supermarket.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/supermarket.woff2') format('woff2'),
+    url('../fonts/supermarket.woff') format('woff'),
+    url('../fonts/supermarket.svg#supermarketregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -1539,23 +1539,23 @@ nav{
     background-position: top center;
 }
 .ihome-travel{
-    background: url("/images/traveler2.png");
+    background: url("../images/traveler2.png");
 }
 .ihome-uni{
-    background: url("/images/university3.png");
+    background: url("../images/university3.png");
 }
 .ihome-event{
-    background: url("/images/events.png");
+    background: url("../images/events.png");
 }
 .ihome-home{
-    background: url("/images/home.png");
+    background: url("../images/home.png");
 }
 
 .ihome-gov{
-    background: url("/images/gov1.png");
+    background: url("../images/gov1.png");
 }
 .ihome-search{
-    background: url("/images/search.png");
+    background: url("../images/search.png");
 }
 
 a:focus:not(.a-tab), input:focus, button:focus, textarea:focus, select:focus, a:active:not(.a-tab), input:active, button:active, textarea:active, select:active,
