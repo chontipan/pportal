@@ -15,6 +15,19 @@ use \Elasticquent\ElasticquentResultCollection as ResultCollection;
 
 App::missing(function($exception)
 {
+  $countEventLive = 0;
+  $events = Events::orderBy('start','ASC')->get();
+  foreach($events as $event){
+      date_default_timezone_set('Asia/Bangkok');
+      $date11 = $event->start;
+      $date21 = $event->finish;
+      if(date("Y-m-d H:i:s")>=$date11&&date("Y-m-d H:i:s")<=$date21){
+          $countEventLive = $countEventLive+1;
+          $event['status'] = "-1";
+      }
+
+      View::share('countEventLive',$countEventLive);
+  }
     return Response::view('errors.404', array(), 404);
 });
 //Route::resource('admin','AdminController');
