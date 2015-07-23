@@ -44,15 +44,15 @@
         <tr>
             <td><?php echo $i;?></td>
             <td class="collapsing">
-                <img src="/uploads/events/{{ $event->img == '' ? 'blank.png' : $event->img  }}"> {{ $event->name }}
+                <img src="{{Config::get('app.subdir')}}/uploads/events/{{ $event->img == '' ? 'blank.png' : $event->img  }}"> {{ $event->name }}
             </td>
           
             <td class="collapsing">{{ $event->start }}</td>
             <td class="collapsing">{{ $event->finish }}</td>
             <td>
-                <a href="/admin/events/{{$event->id}}/show"><i class="search teal icon"></i></a>
-                <a href="/admin/events/{{$event->id}}/update"><i class="configure teal icon"></i></a>
-                <a class="del" href="/admin/events/{{ $event->id }}/delete"><i class="remove teal icon"></i></a>
+                <a href="{{Config::get('app.subdir')}}/admin/events/{{$event->id}}/show"><i class="search teal icon"></i></a>
+                <a href="{{Config::get('app.subdir')}}/admin/events/{{$event->id}}/update"><i class="configure teal icon"></i></a>
+                <a class="del" href="{{Config::get('app.subdir')}}/admin/events/{{ $event->id }}/delete"><i class="remove teal icon"></i></a>
             </td>
         </tr>
         <?php endforeach;?>

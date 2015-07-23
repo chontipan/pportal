@@ -45,14 +45,6 @@
     </div>
 
 
-    <div class="required field">
-        {{ Form::label('type','หมวดหมู่') }}
-        <select class="ui dropdown" name="type" id="type">
-            {{ $event->type==1 ? '<option value="1" selected>มหาวิทยาลัย</option> <option value="2">ท่องเที่ยว</option>':
-             '<option value="1">มหาวิทยาลัย</option> <option value="2" selected>ท่องเที่ยว</option>' }}
-        </select>
-    </div>
-
     <div class="ui two fields segment">
         <div class="required field">
             {{ Form::label('start','วัน/เวลา เริ่มกิจกรรม') }}
@@ -97,10 +89,10 @@
 
     <div class="required field">
         {{ Form::label('img','รูปภาพ') }}
-        <img style="max-width:100%;height:auto;" src="/uploads/events/{{ $event->img == '' ? 'blank.png' : $event->img  }}">
+        <img style="max-width:100%;height:auto;" src="{{Config::get('app.subdir')}}/uploads/events/{{ $event->img == '' ? 'blank.png' : $event->img  }}">
         {{ Form::file('img') }}
     </div>
-    {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}
+    {{ Form::submit('ยืนยัน',array('class'=>'ui submit teal button')) }}
 
     {{ Form::close() }}
 @stop

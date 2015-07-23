@@ -69,7 +69,6 @@ class AdminController extends BaseController {
         $rules = array(
             'name' => 'required|unique:events,name',
             'img' => 'required|image|mimes:jpg,jpeg,png,gif',
-            'type'=>'required',
             'start'=>'required',
             'finish'=>'required'
         );
@@ -102,7 +101,6 @@ class AdminController extends BaseController {
             if($check){
                 $event = new Events();
                 $event->name = Input::get('name');
-                $event->type = Input::get('type');
                 $event->start = Input::get('start');
                 $event->finish = Input::get('finish');
                 $event->img = $archivo;
@@ -147,7 +145,7 @@ class AdminController extends BaseController {
         $rules = array(
             'name' => 'required|unique:events,name,'.$id,
             'img' => 'image|mimes:jpg,jpeg,png,gif',
-            'type'=>'required',
+
             'start'=>'required',
             'finish'=>'required',
             'where' =>'required',
@@ -189,7 +187,7 @@ class AdminController extends BaseController {
                 if($check){
                     //$event = new Events();
                     $event->name = Input::get('name');
-                    $event->type = Input::get('type');
+
                     $event->start = Input::get('start');
                     $event->finish = Input::get('finish');
                     $event->img = $archivo;
@@ -218,7 +216,7 @@ class AdminController extends BaseController {
                 $check = true;
                 if($check){
                     $event->name = Input::get('name');
-                    $event->type = Input::get('type');
+
                     $event->start = Input::get('start');
                     $event->finish = Input::get('finish');
                     $event->descript = Input::get('descript');
