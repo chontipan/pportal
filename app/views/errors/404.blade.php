@@ -21,7 +21,7 @@
                             <p>ขออภัย ดูเหมือนเราจะไม่พบสิ่งที่คุณกำลังมองหา </p>
                             <ul>
                                 <li><a href="{{url('/') }}"> เยื่ยมชมหน้าหลักของเรา </a></li>
-                                <li> <a id="click-search">ใช้การค้นหาของเรา</a> </li>
+
                             </ul>
                         </div>
                     </div>
@@ -31,9 +31,4 @@
     </div>
 @stop
 @section('javascript')
-    <script>
-        $('#click-search').click(function(){
-           $('#search-terms').select().focus();
-        });
-    </script>
 @stop
