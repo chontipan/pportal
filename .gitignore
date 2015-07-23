@@ -51,4 +51,4 @@ $RECYCLE.BIN/
 
 vendor/
 .idea/
-elasticsearch-1.6.0/
+elasticsearch-1.6.0
