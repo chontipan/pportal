@@ -12,7 +12,7 @@
             <div style="text-align:-webkit-center;" class="container">
                 <div style="text-align: left" class="row content-event terminal">
                     <div class="title">
-                        <img src="/images/middle/{{$resultCategory->id}}.png" /> {{$resultCategory->name}}
+                        <img src="/phayaoportal/images/middle/{{$resultCategory->id}}.png" /> {{$resultCategory->name}}
                     </div>
 
                     @if(count($links) > 0)

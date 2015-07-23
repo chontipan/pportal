@@ -8,7 +8,7 @@
  @extends('home.layout')
 
 @section('head')
-    <title>404 ไม่พบหน้าที่คุณต้องการ | Phayao Portal</title>
+    <title>ขออภัย ไม่พบหน้าที่คุณต้องการ | Phayao Portal</title>
 @stop
 @section('content')
     <div id="title-event" class="slide header">
@@ -16,12 +16,13 @@
             <div style="text-align:-webkit-center;" class="container">
                 <div class="row terminal error-content">
                     <div style="text-align:-webkit-left;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h1 class="error-title">404 ไม่พบหน้าที่คุณต้องการ</h1>
+                        <h1 class="error-title">ไม่พบหน้าที่คุณต้องการ</h1>
                         <div>
                             <p>ขออภัย ดูเหมือนเราจะไม่พบสิ่งที่คุณกำลังมองหา </p>
+                            <p><u>ข้อแนะนำ</u></p>
                             <ul>
-                                <li><a href="{{url('/') }}"> เยื่ยมชมหน้าหลักของเรา </a></li>
-
+                                <li><a href="{{url('/') }}"> กลับหน้าหลักของเรา </a></li>
+                                <li><a href="#" id="click-search">ใช้การค้นหาของเรา</a></li>
                             </ul>
                         </div>
                     </div>
@@ -31,4 +32,9 @@
     </div>
 @stop
 @section('javascript')
+<script>
+        $('#click-search').click(function(){
+           $('#search-terms').select().focus();
+        });
+    </script>
 @stop

@@ -51,7 +51,7 @@
                                                 <?php $h=0;?>
                                                 <div class="row">
                                                     @foreach($mjc->MiddleCategories as $mdc)
-                                                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                                                             <a href="{{URL::to('/category/'.$mdc->id.'/update')}}">
                                                                 <div class="media">
                                                                     <div class="media-left pull-left">
@@ -74,7 +74,7 @@
                                     <div role="tabpanel" class="tab-pane" id="tab_gov">
                                             <div class="row">
                                                 @foreach($government as $gov)
-                                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                                                         <a href="{{URL::to('/government/'.$gov->id.'/show')}}">
                                                             <div class="media">
 
@@ -122,7 +122,7 @@
                                         </h3>
                                         <div class="row">
                                             @foreach($recommends as $link )
-                                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                                                         <a href="{{$link->link}}" target="_blank" data-type="recommend" data-item="{{$link->id}}">
                                                             <div class="media">
                                                                 <div class="media-body">
@@ -144,7 +144,7 @@
                                                         <div class="row">
                                                             @foreach($mdc->Link as $link )
                                                                 @if($link->MiddleCategories->name=="ท่องเที่ยว")
-                                                                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                                                                         <a href="{{$link->link}}" target="_blank" data-type="link" data-item="{{$link->id}}">
                                                                             <div class="media">
                                                                                 <div class="media-body">
@@ -195,7 +195,7 @@
                                     @endforeach
                                 @endif
                             @endforeach
-                            
+
                         </ul>
                     </div>
                     <div class="clearfix"></div>
@@ -216,7 +216,7 @@
                                                     </h3>
                                                     <div class="row">
                                                         @foreach($mdc->Link as $link )
-                                                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                                                                 <a href="{{$link->link}}" target="_blank" data-type="link" data-item="{{$link->id}}">
                                                                     <div class="media">
                                                                         <div class="media-body">

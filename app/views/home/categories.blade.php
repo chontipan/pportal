@@ -33,11 +33,11 @@
                                                     <?php $h=0;?>
                                                     <div class="row">
                                                         @foreach($mjc->MiddleCategories as $mdc)
-                                                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                                                                 <a href="{{URL::to('/category/'.$mdc->id.'/update')}}">
                                                                     <div class="media">
                                                                         <div class="media-left pull-left">
-                                                                            <img class="media-object" src="/images/middle/{{$mdc->id}}.png" alt="">
+                                                                            <img class="media-object" src="/phayaoportal/images/middle/{{$mdc->id}}.png" alt="">
                                                                         </div>
                                                                         <div class="media-body">
                                                                             <h4 class="media-heading">{{$mdc->name}}</h4>
