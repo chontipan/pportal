@@ -77,9 +77,7 @@
                                                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                                         <a href="{{URL::to('/government/'.$gov->id.'/show')}}">
                                                             <div class="media">
-                                                                {{--<div class="media-left pull-left">
-                                                                    <img class="media-object" src="<?php echo Config::get('app.subdir')?>/images/middle/{{$mdc->id}}.png" alt="">
-                                                                </div>--}}
+
                                                                 <div class="media-body">
                                                                     <h4 class="media-heading">{{$gov->ministry}}</h4>
                                                                 </div>
@@ -197,7 +195,7 @@
                                     @endforeach
                                 @endif
                             @endforeach
-                            {{--<li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>--}}
+                            
                         </ul>
                     </div>
                     <div class="clearfix"></div>

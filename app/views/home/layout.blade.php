@@ -48,8 +48,15 @@
             </a>
         </div>
         <div class="feedback">
-            <a href="http://goo.gl/forms/nAopGkMd1k">feedback</a>
+            <a href="http://goo.gl/forms/nAopGkMd1k" target="_blank" style="margin-right: 5px;">feedback</a>
+            <span>|</span>
+            <a href="http://goo.gl/forms/NQmoZkxb69" style="margin-left: 5px;" target="_blank">แนะนำ link</a>
+
         </div>
+
+
+
+
 
     </div>
 
