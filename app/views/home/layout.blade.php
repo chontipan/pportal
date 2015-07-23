@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/images/favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/favicon.ico">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/jquery-ui.css">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/font-awesome.min.css">
