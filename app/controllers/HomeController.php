@@ -303,8 +303,7 @@ class HomeController extends BaseController {
             $results = new ResultCollection($results, $instance = new Link());
            //dd($results);
 
-           $groupd = $results->groupby('MiddleCategories.MajorCategories.UserCategories.name');
-           return $groupd;
+      
             Session::flash('search',$terms);
             return View::make('home.ajax-search')->with('results',$results);
         }else {
