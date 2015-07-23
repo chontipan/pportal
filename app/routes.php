@@ -13,7 +13,10 @@
 use \Elasticquent\ElasticquentResultCollection as ResultCollection;
 
 
-
+App::missing(function($exception)
+{
+    return Response::view('errors.404', array(), 404);
+});
 //Route::resource('admin','AdminController');
 Route::get('/admin/login','SessionsController@login');
 Route::get('/admin/logout','SessionsController@destroy');
