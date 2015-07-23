@@ -894,6 +894,7 @@ progress::-moz-progress-bar {
  .terminal .content{
     height: auto;
     padding: 10px 10px 10px 10px;
+    margin-left: 50px;
     text-align: left;
     display: block;
 
