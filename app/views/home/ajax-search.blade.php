@@ -23,7 +23,7 @@
                         </h3>
                         <div class="row">
                             @foreach($results as $result )
-                                @if($result->MiddleCategories->MajorCategories->UserCategories->name=="หน่วยงานราชการ")
+                                @if($result->MiddleCategories->MajorCategories->UserCategories->name=="บริการภาครัฐ")
                                     <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
                                         <a href="{{$result->link}}" target="_blank">
                                             <div class="media">
