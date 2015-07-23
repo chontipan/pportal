@@ -11,15 +11,13 @@
 <head>
 
     @yield('head')
-
-
     <meta charset="utf-8">
     <title>Phayao Portal พะเยาเริ่มที่นี้</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    {{--<link rel="icon" type="image/png" href="images/favicon.png">--}}
+    {{--<link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/images/favicon.png">--}}
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/jquery-ui.css">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo Config::get('app.subdir')?>/css/font-awesome.min.css">
@@ -101,7 +99,7 @@
                         <li>
                             <a class="{{Request::path()=='events' ? 'active' : ''}}" href="{{url('/events')}}">
                                   <span class="ihome-event home">กิจกรรม{{$countEventLive != 0  ? '<span class="badge">'. $countEventLive.'</span>':''}}</span>
-                        
+
 
                             </a>
                         </li>
