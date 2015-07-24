@@ -894,7 +894,7 @@ progress::-moz-progress-bar {
  .terminal .content{
     height: auto;
     padding: 10px 10px 10px 10px;
-    margin-left: 50px;
+
     text-align: left;
     display: block;
 
@@ -1073,7 +1073,7 @@ progress::-moz-progress-bar {
     text-align: -webkit-center;
     width: 60px;
     height: 60px;
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 50%;
     top: -4px;
     left: -4px;
@@ -1085,9 +1085,9 @@ progress::-moz-progress-bar {
     box-shadow: 0 0 0 2px rgba(245, 0, 138, 1);
 }
 .tab-pane .media img{
-    margin: 10px 0px;
+    margin: 10px 10px;
     width: 40px;
-    filter: invert(1);
+
     -webkit-filter: invert(0);
     -moz-filter: invert(0);
     -o-filter: invert(0);
