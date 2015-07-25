@@ -43,10 +43,35 @@
             {{ Form::label('name','ชื่อหน่วยงาน') }}
             {{ Form::text('name',null,['placeholder'=>'ชื่อหน่วยงาน']) }}
         </div>
+
         <div class="required field">
-            {{ Form::label('ministry','ชื่อกระทรวง') }}
-            {{ Form::text('ministry',null,['placeholder'=>'ชื่อกระทรวง']) }}
+            {{ Form::label('ministry','กระทรวงที่หน่วยงานสังกัด:  ') }}
+            <select class="ui" name="ministry" id="ministry">
+                <option value="สำนักนายกรัฐมนตรี">สำนักนายกรัฐมนตรี</option>
+                <option value="กระทรวงกลาโหม">กระทรวงกลาโหม</option>
+                <option value="กระทรวงการคลัง">กระทรวงการคลัง</option>
+                <option value="กระทรวงการต่างประเทศ">กระทรวงการต่างประเทศ</option>
+                <option value="กระทรวงการท่องเที่ยวและกีฬา">กระทรวงการท่องเที่ยวและกีฬา</option>
+                <option value="กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์">กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์</option>
+                <option value="กระทรวงเกษตรและสหกรณ์">กระทรวงเกษตรและสหกรณ์</option>
+                <option value="กระทรวงคมนาคม">กระทรวงคมนาคม</option>
+                <option value="กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม">กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม</option>
+                <option value="กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร">กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร</option>
+                <option value="กระทรวงพลังงาน">กระทรวงพลังงาน</option>
+                <option value="กระทรวงพาณิชย์">กระทรวงพาณิชย์</option>
+                <option value="กระทรวงมหาดไทย">กระทรวงมหาดไทย</option>
+                <option value="กระทรวงยุติธรรม">กระทรวงยุติธรรม</option>
+                <option value="กระทรวงแรงงาน">กระทรวงแรงงาน</option>
+                <option value="กระทรวงวัฒนธรรม">กระทรวงวัฒนธรรม</option>
+                <option value="กระทรวงวิทยาศาสตร์และเทคโนโลยี">กระทรวงวิทยาศาสตร์และเทคโนโลยี</option>
+                <option value="กระทรวงศึกษาธิการ">กระทรวงศึกษาธิการ</option>
+                <option value="กระทรวงสาธารณสุข">กระทรวงสาธารณสุข</option>
+                <option value="กระทรวงอุตสาหกรรม">กระทรวงอุตสาหกรรม</option>
+
+
+            </select>
         </div>
+
         <div class="required field">
             {{ Form::label('where','สถานที่ตั้ง') }}
             {{ Form::text('where',null,['placeholder'=>'สถานที่ตั้ง']) }}
@@ -56,8 +81,8 @@
             {{ Form::text('contact',null,['placeholder'=>'ติดต่อ']) }}
         </div>
         <div class="required field">
-            {{ Form::label('link','จุดเชื่อมโยง') }}
-            {{ Form::text('link',null,['placeholder'=>'จุดเชื่อมโยง']) }}
+            {{ Form::label('link','จุดเชื่อมโยง(URL)') }}
+            {{ Form::text('link',null,['placeholder'=>'จุดเชื่อมโยง(URL)']) }}
         </div>
 
         {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}

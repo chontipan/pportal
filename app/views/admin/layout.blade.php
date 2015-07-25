@@ -19,6 +19,7 @@
     <meta name="description" content="">
 
     <!-- Semantic -->
+    <link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/favicon.ico">
     <link href="{{Config::get('app.subdir')}}/semantic/dist/semantic.min.css" rel="stylesheet" type="text/css">
     <link href="{{Config::get('app.subdir')}}/css/style.css" rel="stylesheet" type="text/css">
     <link href="{{Config::get('app.subdir')}}/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">

@@ -43,18 +43,18 @@
                         @endif
                         <div class="two fields">
                             <div class="required field">
-                                {{ Form::label('name','ชื่อจุดเชื่อมโยง') }}
-                                {{ Form::text('name',null,['placeholder'=>'ชื่อจุดเชื่อมโยง']) }}
+                                {{ Form::label('name','ชื่อจุดเชื่อมโยง(Link)') }}
+                                {{ Form::text('name',null,['placeholder'=>'ชื่อจุดเชื่อมโยง(Link)']) }}
                             </div>
                             <div class="required field">
-                                {{ Form::label('link','ที่อยู่จุดเชื่อมโยง') }}
+                                {{ Form::label('link','ที่อยู่จุดเชื่อมโยง(URL)') }}
                                 {{ Form::text('link',null,['placeholder'=>'Link address']) }}
                             </div>
                         </div>
 
 
                         <div class="field">
-                            {{ Form::label('usercategories','หมวดหมู่ผู้ใช้') }}
+                            {{ Form::label('usercategories','หมวดหมู่กลุ่มผู้ใช้') }}
                             <select class="ui" name="usercategories" id="usercategories">
                                 <option value=""></option>
                             </select>
@@ -76,10 +76,11 @@
                             </select>
                             <a id="add_mdc" class="ui tag blue label">จัดการ</a>
                         </div>
-                        <div class="ui field segment">
-                            <div class="ui checkbox">
+
+                        <div class="ui field segment" >
+                            <div class="ui checkbox" id="organization" name="organization">
                                 <input id="gov" type="checkbox" name="gov">
-                                <label>เลือกหน่วยงาน</label>
+                                <label>เลือกหน่วยงาน ***เฉพาะบริการภาครัฐ</label>
                             </div>
                             <div id="gov_id" style="display: none" class="ui field segment">
                                 {{ Form::label('gov_id','เลือกหน่วยงาน') }}
@@ -104,7 +105,7 @@
                     <i class="close icon"></i>
                     <div class="header">
                         <i class="settings icon"></i>
-                        จัดการหมวดหมู่ผู้ใช้
+                        จัดการหมวดหมู่กลุ่มผู้ใช้
                     </div>
                     <div class="content">
                         <div class="ui green dividing header">
@@ -206,7 +207,7 @@
                             {{ Form::hidden('target','majorcategory') }}
                             {{ Form::hidden('id',null) }}
                             <div class="field">
-                                {{ Form::label('user_categories_id','เลือกหมวดหมู่ผู้ใช้ : ') }}
+                                {{ Form::label('user_categories_id','เลือกหมวดหมู่กลุ่มผู้ใช้ : ') }}
                                 <select class="ui" name="user_categories_id" id="user_categories_id">
                                     <option value=""></option>
                                 </select>
@@ -304,6 +305,7 @@
 @section('javascript')
     <script>
         $(document).on('ready', function() {
+
             runUc('#usercategories');
             $('#gov').change(function(){
                 if($('#gov').is(':checked')){
@@ -312,6 +314,11 @@
                     $('#gov_id').fadeOut('slow');
                 }
             });
+
+
         });
+
+
+
     </script>
     @stop
