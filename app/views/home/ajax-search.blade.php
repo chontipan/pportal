@@ -89,7 +89,7 @@
                 var root = location.protocol + '//' + location.host;
                 //alert(root+'/addfrequency1');
                 $.ajax({
-                    url:root+'/addfrequency',
+                    url:root+'/phayaoportal/addfrequency',
                     data : { link:e.currentTarget.href},
                     method:'POST',
                     success:function(data){

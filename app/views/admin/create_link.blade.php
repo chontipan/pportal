@@ -30,7 +30,8 @@
 
                     <h1><i class="big settings teal icon"></i> เพิ่มจุดเชื่อมโยง(Link)</h1>
 
-                    {{ Form::open(array('url' => '/admin/link/create?form=form_main','class' => 'ui warning form teal segment','files'=>true)) }}
+
+     {{ Form::open(array('url' => '/admin/link/create?form=form_main','class' => 'ui warning form teal segment','files'=>true)) }}
                         @if(!$errors->isEmpty())
 
                         <div class="ui red message">
@@ -53,7 +54,7 @@
                         </div>
 
 
-                        <div class="field">
+                        <div class="field" >
                             {{ Form::label('usercategories','หมวดหมู่กลุ่มผู้ใช้') }}
                             <select class="ui" name="usercategories" id="usercategories">
                                 <option value=""></option>
@@ -61,7 +62,53 @@
                             <a id="add_uc" class="ui tag blue label">จัดการ</a>
                         </div>
 
-                        <div class="field">
+
+
+
+        <div class="field" id="gov_id" style="display: none" >
+            {{ Form::label('gov_id','หน่วยงานที่ให้บริการ') }}
+            <div class="ui field segment">
+                {{ Form::label('minis','เลือกกระทรวง') }}
+                <select class="ui" name="minis" id="minis">
+                    <option value="">---เลือกกระทรวง---</option>
+                    <option value="ทั้งหมด">ทั้งหมด</option>
+                    <option value="สำนักนายกรัฐมนตรี">สำนักนายกรัฐมนตรี</option>
+                    <option value="กระทรวงกลาโหม">กระทรวงกลาโหม</option>
+                    <option value="กระทรวงการคลัง">กระทรวงการคลัง</option>
+                    <option value="กระทรวงการต่างประเทศ">กระทรวงการต่างประเทศ</option>
+                    <option value="กระทรวงการท่องเที่ยวและกีฬา">กระทรวงการท่องเที่ยวและกีฬา</option>
+                    <option value="กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์">กระทรวงการพัฒนาสังคมและความมั่นคงของมนุษย์</option>
+                    <option value="กระทรวงเกษตรและสหกรณ์">กระทรวงเกษตรและสหกรณ์</option>
+                    <option value="กระทรวงคมนาคม">กระทรวงคมนาคม</option>
+                    <option value="กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม">กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม</option>
+                    <option value="กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร">กระทรวงเทคโนโลยีสารสนเทศและการสื่อสาร</option>
+                    <option value="กระทรวงพลังงาน">กระทรวงพลังงาน</option>
+                    <option value="กระทรวงพาณิชย์">กระทรวงพาณิชย์</option>
+                    <option value="กระทรวงมหาดไทย">กระทรวงมหาดไทย</option>
+            <option value="กระทรวงยุติธรรม">กระทรวงยุติธรรม</option>
+            <option value="กระทรวงแรงงาน">กระทรวงแรงงาน</option>
+            <option value="กระทรวงวัฒนธรรม">กระทรวงวัฒนธรรม</option>
+            <option value="กระทรวงวิทยาศาสตร์และเทคโนโลยี">กระทรวงวิทยาศาสตร์และเทคโนโลยี</option>
+            <option value="กระทรวงศึกษาธิการ">กระทรวงศึกษาธิการ</option>
+            <option value="กระทรวงสาธารณสุข">กระทรวงสาธารณสุข</option>
+            <option value="กระทรวงอุตสาหกรรม">กระทรวงอุตสาหกรรม</option>
+
+            </select>
+            {{ Form::label('minis','เลือกหน่วยงาน') }}
+            <select class="ui" name="org" id="org">
+                <option value=""></option>
+            </select>
+                <br><br><b><i>***หากไม่มีหน่วยงานที่ท่านค้นหา ให้กดปุ่มเพิ่มหน่วยงาน:</i></b>
+                <a class="ui green button" href="{{URL::to('/admin/gov/create')}}">เพิ่มหน่วยงาน</a>
+        </div>
+
+
+        </div>
+
+
+
+
+                        <div class="field ">
                             {{ Form::label('majorcategories','หมวดหมู่หลัก') }}
                             <select class="ui" name="majorcategories" id="majorcategories">
                                 <option value=""></option>
@@ -77,17 +124,7 @@
                             <a id="add_mdc" class="ui tag blue label">จัดการ</a>
                         </div>
 
-                        <div class="ui field segment" >
-                            <div class="ui checkbox" id="organization" name="organization">
-                                <input id="gov" type="checkbox" name="gov">
-                                <label>เลือกหน่วยงาน ***เฉพาะบริการภาครัฐ</label>
-                            </div>
-                            <div id="gov_id" style="display: none" class="ui field segment">
-                                {{ Form::label('gov_id','เลือกหน่วยงาน') }}
-                                {{ Form::select('gov_id',$goverment,array('class' => 'ui dropdown')) }}
-                                <a class="ui blue button" href="{{URL::to('/admin/gov/create')}}">เพิ่มหน่วยงาน</a>
-                            </div>
-                        </div>
+
                         <div class="field">
                             {{ Form::label('descript','คำอธิบาย') }}
                             {{ Form::textarea('descript') }}
@@ -307,13 +344,6 @@
         $(document).on('ready', function() {
 
             runUc('#usercategories');
-            $('#gov').change(function(){
-                if($('#gov').is(':checked')){
-                    $('#gov_id').fadeIn('slow');
-                }else{
-                    $('#gov_id').fadeOut('slow');
-                }
-            });
 
 
         });

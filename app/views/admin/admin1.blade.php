@@ -30,10 +30,18 @@
                                    ชื่อ
                                </th>
                                <th style="width: 140px;">
-                                   หมวดหมู่
+                                   หมวดหมู่ผู้ใช้
                                </th>
+                               <th style="width: 140px;">
+                                   หมวดหมู่หลัก
+                               </th>
+                               <th style="width: 140px;">
+                                   หมวดหมู่ย่อย
+                               </th>
+                            
+
                                <th>
-                                   link address
+                                   ความถี่ในการเข้าชม
                                </th>
                                <th style="  width: 100px;">
                                    จัดการ
@@ -45,11 +53,21 @@
                                <td>
                                    {{ $link->name }}
                                </td>
-                               <td style="    width: 200px;white-space: pre-line;">{{ $link->MiddleCategories->MajorCategories->UserCategories->name}}<i class="long arrow right blue icon"></i>
-                                   {{ $link->MiddleCategories->MajorCategories->name}}<i class="long arrow right blue icon"></i>
+                               <td style="    width: 200px;white-space: pre-line;">
+                                   {{ $link->MiddleCategories->MajorCategories->UserCategories->name}}
+                               </td>
+                               <td>
+                                   {{ $link->MiddleCategories->MajorCategories->name}}
+                               </td>
+                               <td>
                                    {{ $link->MiddleCategories->name}}
                                </td>
-                               <td style="word-break:break-all;">{{ $link->link }}</td>
+
+
+
+                               <td>
+                                   {{ $link->frequency}}
+                               </td>
                                <td class="collapsing">
                                    <a href="{{Config::get('app.subdir')}}/admin/link/{{$link->id}}/show"><i class="search teal icon"></i></a>
                                    <a href="{{Config::get('app.subdir')}}/admin/link/{{$link->id}}/update"><i class="configure teal icon"></i></a>

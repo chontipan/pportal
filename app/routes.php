@@ -178,7 +178,7 @@ Route::post('/admin/middlecategory/{id}/delete','AdminController@postDeleteCateg
 Route::get('/ajax-usercategory','AdminController@ajaxUsercategory');
 Route::get('/ajax-majorcategory','AdminController@ajaxMajorcategory');
 Route::get('/ajax-middlecategory','AdminController@ajaxMiddlecategory');
-
+Route::get('/ajax-showorg','AdminController@ajaxOrg');
 /*Route::get('/users','UserController@getIndex');
 Route::get('/users/add','UserController@getAdd');
 Route::post('/users/add','UserController@postAdd');

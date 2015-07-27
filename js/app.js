@@ -18,6 +18,7 @@ $('#uc,#mjc,#mdc').on('change',function(e){ //When edit categories
     //var at;
     if(target == 'mjc'){  // if edit's target is majorcategories
         var nameC='#user_categories_id';
+       // console.log(nameC);
         runUc(nameC);
         var at;
         $.get('/phayaoportal/ajax-majorcategory?mjc_id=all',function(data){
@@ -85,7 +86,7 @@ $('#del_form_uc,#del_form_mjc,#del_form_mdc').click(function(e){
         var category = 'middlecategory';
     }
 
-    var host =location.protocol + '//' + location.host;
+    var host =location.protocol + '//' + location.host + '/phayaoportal';
     var url =host+"/admin/"+category+"/"+id+"/delete";
     //alert(host);
     if (confirm("ต้องการลบสิ่งนี้ใช่หรือไม่")) {
@@ -110,7 +111,7 @@ $('#up_form_uc,#up_form_mjc,#up_form_mdc').on('submit',function(e){
     var form = $(this);
     //console.log(form);
 
-    var host =location.protocol + '//' + location.host;
+    var host =location.protocol + '//' + location.host + "/phayaoportal";
     var url = host+"/admin/"+category+"/"+e.currentTarget.id.value+"/update";
     //alert(url);
     console.log(url);
@@ -224,6 +225,8 @@ function runUc(name){
         });
     });
 }
+
+
 function runMjc(mjc_id,name){
     $.get('/phayaoportal/ajax-majorcategory?mjc_id='+mjc_id,function(data){
 
@@ -240,7 +243,7 @@ function runMdc(mdc_id,name){
     $.get('/phayaoportal/ajax-middlecategory?mdc_id='+mdc_id,function(data){
         //console.log(data);
         $(name).empty();
-        $(name).append('<option value="-1">---เลือกหมดหมู่รอง---</option>');
+        $(name).append('<option value="-1">---เลือกหมวดหมู่รอง---</option>');
         $.each(data,function(index,Odj){
             //console.log('111');
             $(name).append('<option value="'+Odj.id+'">'+Odj.name+'</option>');
@@ -251,6 +254,13 @@ function runMdc(mdc_id,name){
 $('#usercategories').on('change',function(e){
     //console.log(e);
     var mjc_id = e.target.value;
+    if(mjc_id==9){
+
+        $('#gov_id').fadeIn('slow');
+
+    }else{
+        $('#gov_id').fadeOut('slow');
+    }
     $('#middlecategories').empty();
 
     //alert(mjc_id);
@@ -266,4 +276,22 @@ $('#majorcategories').on('change',function(e){
     runMdc(mdc_id,'#middlecategories');
 });
 
+$('#minis').on('change',function(e){
+    //console.log(e);
+    var org_id = e.target.value;
 
+    runOrg(org_id,'#org');
+});
+
+function runOrg(org_id,name){
+    $.get('/phayaoportal/ajax-showorg?org_id='+org_id,function(data){
+
+        //console.log(data);
+        $(name).empty();
+
+        $(name).append('<option value="">---เลือกหน่วยงาน ---</option>');
+        $.each(data,function(index,Odj){
+            $(name).append('<option value="'+Odj.id+'">'+Odj.name+'</option>');
+        });
+    });
+}

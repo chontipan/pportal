@@ -301,8 +301,8 @@ class AdminController extends BaseController {
                     if(Input::hasFile('file')){
                         $link->img = $archivo;
                     }
-                    if(Input::get('gov')){
-                        $link->gov_id = Input::get('gov_id');
+                    if(Input::get('org')){
+                        $link->gov_id = Input::get('org');
                     }
                     if(Input::get('middlecategories')){
                         $link->middle_categories_id = Input::get('middlecategories');
@@ -498,6 +498,7 @@ class AdminController extends BaseController {
             $gov = "ไม่ได้กำหนดหน่วยงาน";
         }
 
+
         $columns = Schema::getColumnListing('links');
         return View::make('admin.show_link')->with('link',$link)->with('columns',$columns)->with('govName',$gov);
     }
@@ -549,6 +550,18 @@ class AdminController extends BaseController {
 
     public function ajaxUsercategory(){
         $data = UserCategories::all();
+
+        return Response::json($data);
+    }
+    public function ajaxOrg(){
+        $org_id =Input::get('org_id');
+
+        if($org_id=="ทั้งหมด"){
+            $data = Gov::all();
+
+        }else{
+            $data = Gov::where('ministry','=',$org_id)->get();
+        }
 
         return Response::json($data);
     }
