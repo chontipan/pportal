@@ -47,9 +47,9 @@
             </td>
 
             <td class="collapsing">
-                <a href="/admin/recommend/{{$recommend->id}}/show"><i class="search teal icon"></i></a>
-                <a href="/admin/recommend/{{$recommend->id}}/update"><i class="configure teal icon"></i></a>
-                <a class="del" href="/admin/recommend/{{ $recommend->id }}/delete"><i class="remove teal icon"></i></a>
+                <a href="/phayaoportal/admin/recommend/{{$recommend->id}}/show"><i class="search teal icon"></i></a>
+                <a href="/phayaoportal/admin/recommend/{{$recommend->id}}/update"><i class="configure teal icon"></i></a>
+                <a class="del" href="/phayaoportal/admin/recommend/{{ $recommend->id }}/delete"><i class="remove teal icon"></i></a>
             </td>
         </tr>
         <?php endforeach;?>
