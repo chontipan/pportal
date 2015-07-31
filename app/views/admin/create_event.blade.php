@@ -104,7 +104,7 @@
 
 
     <div class="field">
-        {{ Form::label('img','รูปภาพ') }}
+        {{ Form::label('img','รูปภาพ *** รอบรับไฟล์สกุล jpg,jpeg,png,gif') }}
         {{ Form::file('img') }}
     </div>
     {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}

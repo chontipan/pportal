@@ -32,7 +32,7 @@
                 ติดต่อ
             </th>
             <th>
-                จุดเชื่อมโยง
+                จุดเชื่อมโยง(URL)
             </th>
             <th>
                 จัดการ
@@ -57,9 +57,9 @@
                 {{ $gov->link }}
             </td>
             <td class="collapsing">
-                <a href="/admin/gov/{{$gov->id}}/show"><i class="search teal icon"></i></a>
-                <a href="/admin/gov/{{$gov->id}}/update"><i class="configure teal icon"></i></a>
-                <a class="del" href="/admin/gov/{{ $gov->id }}/delete"><i class="remove teal icon"></i></a>
+                <a href="/phayaoportal/admin/gov/{{$gov->id}}/show"><i class="search teal icon"></i></a>
+                <a href="/phayaoportal/admin/gov/{{$gov->id}}/update"><i class="configure teal icon"></i></a>
+                <a class="del" href="/phayaoportal/admin/gov/{{ $gov->id }}/delete"><i class="remove teal icon"></i></a>
             </td>
         </tr>
         <?php endforeach;?>

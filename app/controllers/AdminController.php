@@ -49,8 +49,7 @@ class AdminController extends BaseController {
                     "กันยายน",
                     "ตุลาคม ",
                     "พฤศจิกายน",
-                    "ธันวาคม"
-                );
+                    "ธันวาคม" );
                 $strMonthThai=$strMonthCut[$strMonth];
                 $event->$times[$i]="$strDay $strMonthThai $strYear, $strHour:$strMinute";
 

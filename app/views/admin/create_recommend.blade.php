@@ -25,7 +25,7 @@
     </style>
     {{-- <div class="ui page grid">--}}
 
-    <h1><i class="big settings teal icon"></i> เพิ่มจุดเชื่อมโยงแนะนำ </h1>
+    <h1><i class="big settings teal icon"></i> เพิ่มจุดเชื่อมโยงแนะนำ(Link) </h1>
     {{ Form::open(array('url' => '/admin/recommend/create','class' => 'ui warning form teal segment','files'=>false)) }}
     @if(!$errors->isEmpty())
 
@@ -43,8 +43,8 @@
         {{ Form::text('name',null,['placeholder'=>'ชื่อจุดเชื่อมโยงแนะนำ']) }}
     </div>
     <div class="required field">
-        {{ Form::label('link','ที่อยู่จุดเชื่อมโยง') }}
-        {{ Form::text('link',null,['placeholder'=>'ที่อยู่จุดเชื่อมโยง']) }}
+        {{ Form::label('link','ที่อยู่จุดเชื่อมโยง(URL)') }}
+        {{ Form::text('link',null,['placeholder'=>'ที่อยู่จุดเชื่อมโยง(URL)']) }}
     </div>
     <div class="required field">
         {{ Form::label('descript','คำอธิบาย') }}
