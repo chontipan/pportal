@@ -25,7 +25,7 @@
     </style>
     {{-- <div class="ui page grid">--}}
 
-    <h1><i class="big settings teal icon"></i> เพิ่มจุดกิจกรรม</h1>
+    <h1><i class="big settings teal icon"></i> เพิ่มกิจกรรม (Event)</h1>
 
     {{ Form::open(array('url' => '/admin/events/create','class' => 'ui warning form teal segment','files'=>true)) }}
     @if(!$errors->isEmpty())

@@ -344,7 +344,6 @@
             {{--<div class="ui button">
                 <i class="checkmark icon"></i>
             </div>--}}
-
         </div>
     </div>
 
