@@ -85,6 +85,6 @@
             {{ Form::text('link',null,['placeholder'=>'จุดเชื่อมโยง(URL)']) }}
         </div>
 
-        {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}
+        {{ Form::submit('บันทึก',array('class'=>'ui submit teal button')) }}
     {{ Form::close() }}
 @stop

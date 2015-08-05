@@ -55,8 +55,8 @@
         {{ Form::text('contact',$gov->contact,['placeholder'=>'ติดต่อ']) }}
     </div>
     <div class="required field">
-        {{ Form::label('link','จุดเชื่อมโยง') }}
-        {{ Form::text('link',$gov->link,['placeholder'=>'จุดเชื่อมโยง']) }}
+        {{ Form::label('link','ที่อยู่จุดเชื่อมโยง (URL)') }}
+        {{ Form::text('link',$gov->link,['placeholder'=>'ที่อยู่จุดเชื่อมโยง (URL)']) }}
     </div>
 
     {{ Form::submit('บันทึก',array('class'=>'ui submit teal button')) }}

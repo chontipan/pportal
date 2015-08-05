@@ -39,18 +39,18 @@
     @endif
 
     <div class="required field">
-        {{ Form::label('name','ชื่อจุดเชื่อมโยงแนะนำ') }}
-        {{ Form::text('name',$recommend->name,['placeholder'=>'ชื่อจุดเชื่อมโยงแนะนำ']) }}
+        {{ Form::label('name','ชื่อจุดเชื่อมโยงแนะนำ (Link)') }}
+        {{ Form::text('name',$recommend->name,['placeholder'=>'ชื่อจุดเชื่อมโยงแนะนำ (Link)']) }}
     </div>
     <div class="required field">
-        {{ Form::label('link','ที่อยู่จุดเชื่อมโยง') }}
-        {{ Form::text('link',$recommend->link,['placeholder'=>'ที่อยู่จุดเชื่อมโยง']) }}
+        {{ Form::label('link','ที่อยู่จุดเชื่อมโยง (URL)') }}
+        {{ Form::text('link',$recommend->link,['placeholder'=>'ที่อยู่จุดเชื่อมโยง (URL)']) }}
     </div>
     <div class="required field">
         {{ Form::label('descript','คำอธิบาย') }}
         {{ Form::textarea('descript',$recommend->descript) }}
     </div>
 
-    {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}
+    {{ Form::submit('บันทึก',array('class'=>'ui submit teal button')) }}
     {{ Form::close() }}
 @stop

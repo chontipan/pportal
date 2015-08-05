@@ -51,6 +51,6 @@
         {{ Form::textarea('descript') }}
     </div>
 
-    {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}
+    {{ Form::submit('บันทึก',array('class'=>'ui submit teal button')) }}
     {{ Form::close() }}
 @stop
