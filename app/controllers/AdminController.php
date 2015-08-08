@@ -195,7 +195,7 @@ class AdminController extends BaseController {
                     $event->img = $archivo;
                     $event->descript = Input::get('descript');
                     $event->where = Input::get('where');
-                    $event->where = Input::get('location');
+                    $event->location = Input::get('location');
                     $event->contact = Input::get('contact');
                     if(Input::has('repeat')){
                         $event->repeat = 1;
@@ -224,7 +224,7 @@ class AdminController extends BaseController {
                     $event->finish = Input::get('finish');
                     $event->descript = Input::get('descript');
                     $event->where = Input::get('where');
-                    $event->where = Input::get('location');
+                    $event->location = Input::get('location');
                     $event->contact = Input::get('contact');
                     if(Input::has('repeat')){
                         $event->repeat = 1;
@@ -253,11 +253,23 @@ class AdminController extends BaseController {
 
     public function getCreateLink(){
         $goverment = Gov::all();
+
         $selected = array();
         foreach($goverment as $gov) {
             $selected[$gov->id] = $gov->name;
         }
-        return View::make('admin.create_link')->with('goverment',$selected);
+        $ucs = UserCategories::all();
+        $uchoice = array();
+
+        $uchoice = UserCategories::lists('name', 'id');
+
+        $mjs = MajorCategories::all();
+        $mjschoice = array();
+
+        $mjschoice = MajorCategories::lists('name', 'id');
+        //var_dump($uchoice);
+
+        return View::make('admin.create_link')->with('goverment',$selected)->with('ucs',$uchoice)->with('mjs',$mjschoice);
     }
     public function postCreateLink(){
 
@@ -333,12 +345,12 @@ class AdminController extends BaseController {
         }else if(Request::ajax()&&Input::get('form')=='form_mjc'){
             $data = new MajorCategories();
             $data->name = Input::get('name');
-            $data->user_categories_id = 6;
+            $data->user_categories_id = Input::get('user_categories_id');
             $data->save();
         }else if(Request::ajax()&&Input::get('form')=='form_mdc'){
             $data = new MiddleCategories();
             $data->name = Input::get('name');
-            $data->major_categories_id = 6;
+            $data->major_categories_id = Input::get('major_categories_id');
             $data->save();
         }
 
@@ -381,11 +393,15 @@ class AdminController extends BaseController {
         foreach($goverment as $gov) {
             $selected[$gov->id] = $gov->name;
         }
+
+
+
         return View::make('admin.update_link')
             ->with('link',$link)
             ->with('usercategories',$usercategories)
             ->with('majorcategories',$majorcategories)
             ->with('middlecategories',$middlecategories)
+
             ->with('goverment',$selected);
     }
     public function postUpdateLink($id){
@@ -586,5 +602,26 @@ class AdminController extends BaseController {
 
         return Response::json($data);
     }
+
+    public function filterLinks()
+    {
+        $ucs=Input::get('ucs');
+
+
+        if($ucs<0){
+            $data = Link::orderBy('middle_categories_id', 'DESC')->get();
+
+
+            }else{
+            $data = Link::orderBy('middle_categories_id', 'DESC')->get();
+            //$data2 = MajorCategories::where('user_categories_id',$ucs)->get();
+            //$data = Link::where('middle_categories_id',$ucs)->get();
+            //$link->MiddleCategories->MajorCategories->UserCategories->name
+        }
+        return View::make('admin.admin2')->with('links',$data);
+
+    }
+
+
 
 }

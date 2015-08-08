@@ -5,30 +5,33 @@
  * Date: 3/30/2015
  * Time: 19:39
  */?>
-@extends('admin.layout')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-   {{-- <div class="ui page grid">--}}
+<head>
+
+    <meta charset="utf-8">
+    <title>Phayao Portal | Admin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Semantic -->
+    <link rel="icon" type="image/png" href="<?php echo Config::get('app.subdir')?>/favicon.ico">
+    <link href="{{Config::get('app.subdir')}}/semantic/dist/semantic.min.css" rel="stylesheet" type="text/css">
+    <link href="{{Config::get('app.subdir')}}/css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{Config::get('app.subdir')}}/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
 <style>
     table tbody td img{
         max-width: 25px;
     }
 </style>
-                    <h1><i class="big settings teal icon"></i> จัดการจุดเชื่อมโยง(Link)</h1>
-                           @if(Session::has('message'))
-                           <div class="ui info message">
-                               <div class="header">{{ Session::get('message') }}</div>
-                           </div>
-                           @endif
 
-
-   <div class="field" >
-       {{ Form::label('ucs','กลุ่มผู้ใช้') }}
-       <select class="ui" name="ucs" id="ucs">
-
-       </select>
-
-   </div>
 
                     <div id="display">
                        <table class="ui celled striped teal table">
@@ -88,9 +91,8 @@
                            </tbody>
                        </table>
                     </div>
-
-
-@stop
+</body>
+</html>
 
 @section('javascript')
     <script>

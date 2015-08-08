@@ -133,7 +133,7 @@ $('#up_form_uc,#up_form_mjc,#up_form_mdc').on('submit',function(e){
 
             alert('แก้ไขข้อมูลสำเร็จ');
             //$('#load_mjc').removeClass('active');
-            //$('#form_mjc .button').addClass('disabled');
+
             //$('#modal_mjc .message').removeClass('hidden').append('<p>เพิ่ม '+$('#form_mjc #name').val()+' สำเร็จ</p>');
         }
     });
@@ -185,7 +185,7 @@ $('#form_mjc').on('submit',function(e){
             runMjc('all','#mjc');
 
             $('#load_mjc').removeClass('active');
-            //$('#form_mjc .button').addClass('disabled');
+
             $('#modal_mjc .message').removeClass('hidden').append('<p>เพิ่ม '+$('#form_mjc #name').val()+' สำเร็จ</p>');
         }
     });
@@ -219,12 +219,13 @@ function runUc(name){
     $.get('/phayaoportal/ajax-usercategory',function(data){
 
         $(name).empty();$('#majorcategories').empty();$('#middlecategories').empty();
-        $(name).append('<option value="-1">---เลือกหมวดหมู่กลุ่มผู้ใช้ ---</option>');
+        $(name).append('<option value="-1">ทั้งหมด</option>');
         $.each(data,function(index,ucOdj){
             $(name).append('<option value="'+ucOdj.id+'">'+ucOdj.name+'</option>');
         });
     });
 }
+
 
 
 function runMjc(mjc_id,name){
@@ -243,10 +244,10 @@ function runMdc(mdc_id,name){
     $.get('/phayaoportal/ajax-middlecategory?mdc_id='+mdc_id,function(data){
         //console.log(data);
         $(name).empty();
-        $(name).append('<option value="-1">---เลือกหมวดหมู่รอง---</option>');
+        $(name).append('<option value="-1">---เลือกหมวดหมู่ย่อย---</option>');
         $.each(data,function(index,Odj){
             //console.log('111');
-            $(name).append('<option value="'+Odj.id+'">'+Odj.name+'</option>');
+            $(name).append('<option value="'+Odj.id+'">'+Odj.name+' '+'('+''+Odj.id+''+'.png)'+'</option>');
         });
     });
 }

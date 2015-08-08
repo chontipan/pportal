@@ -72,16 +72,32 @@
             </div>
         </div>
     </div>
-    <div class="two fields">
+
         <div class="field">
-            {{ Form::label('where','สถานที่') }}
+            {{ Form::label('where','สถานที่จัดกิจกรรม') }}
             {{ Form::text('where',$event->where,['id'=>'where','autocomplete'=>'off']) }}
         </div>
+    <div class="field">
+        {{ Form::label('location','อำเภอ') }}
+
+        <select class="ui dropdown" name="location" id="location">
+
+            <option value="เมือง"{{$event->location=="เมือง" ? 'selected' : ''}}>เมือง</option>
+            <option value="เชียงคำ" {{$event->location=="เชียงคำ" ? 'selected' : ''}}>เชียงคำ</option>
+            <option value="ดอกคำใต้" {{$event->location=="ดอกคำใต้" ? 'selected' : ''}}>ดอกคำใต้</option>
+            <option value="จุน" {{$event->location=="จุน" ? 'selected' : ''}}>จุน</option>
+            <option value="แม่ใจ" {{$event->location=="แม่ใจ" ? 'selected' : ''}}>แม่ใจ</option>
+            <option value="ปง" {{$event->location=="ปง" ? 'selected' : ''}}>ปง</option>
+            <option value="ภูซาง" {{$event->location=="ภูซาง" ? 'selected' : ''}}>ภูซาง</option>
+            <option value="เชียงม่วน" {{$event->location=="เชียงม่วน" ? 'selected' : ''}}>เชียงม่วน</option>
+
+        </select>
+    </div>
         <div class="field">
             {{ Form::label('contact','ติดต่อ') }}
             {{ Form::text('contact',$event->contact,['id'=>'contact','autocomplete'=>'off']) }}
         </div>
-    </div>
+
     <div class="field">
         {{ Form::label('descript','คำอธิบาย') }}
         {{ Form::textarea('descript',$event->descript) }}

@@ -22,6 +22,10 @@
                                 <h3 class="description">{{$column}} :&nbsp;&nbsp;&nbsp;&nbsp;<b>{{$event->$column == 0 ?'ไม่มีวนซ้ำ' : 'วนซ้ำ  '.$event->day}}</b></h3>   <div class="clearing"></div>
                             @elseif($column == 'descript')
                                 <h3 class="description">{{$column}}ion :&nbsp;&nbsp;&nbsp;&nbsp;<b>{{$event->$column}}</b></h3>   <div class="clearing"></div>
+                            @elseif($column == 'img')
+                                <h3 class="description">{{$column}} :&nbsp;&nbsp;&nbsp;&nbsp;<b>{{$event->$column}}</b></h3>   <div class="clearing"></div>
+                                <h3 class="description"><img style="max-width:100%;height:auto;" src="{{Config::get('app.subdir')}}/uploads/events/{{ $event->$column == '' ? 'blank.png' : $event->$column  }}"></h3>
+                                <div class="clearing"></div>
                             @else
                                 <h3 class="description">{{$column}} :&nbsp;&nbsp;&nbsp;&nbsp;<b>{{$event->$column}}</b></h3>   <div class="clearing"></div>
                             @endif

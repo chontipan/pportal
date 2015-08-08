@@ -46,7 +46,7 @@
 
     <div class="field">
         {{ Form::label('descript','คำอธิบาย') }}
-        {{ Form::textarea('descript') }}
+        {{ Form::textarea('descript',null,['placeholder'=>'รายละเอียดกิจกรรม']) }}
     </div>
 
     <div class="ui two fields segment">
@@ -77,10 +77,9 @@
         </div>
     </div>
 
-
         <div class="required field">
-            {{ Form::label('where','สถานที่') }}
-            {{ Form::text('where',null,['id'=>'where','autocomplete'=>'off']) }}
+            {{ Form::label('where','สถานที่จัดกิจกรรม') }}
+            {{ Form::text('where',null,['id'=>'where','autocomplete'=>'off','placeholder'=>'สถานที่จัดกิจกรรม']) }}
         </div>
         <div class="required field">
           {{ Form::label('location','อำเภอ') }}
@@ -98,7 +97,7 @@
         </div>
         <div class="field">
             {{ Form::label('contact','ติดต่อได้ที่') }}
-            {{ Form::text('contact',null,['id'=>'contact','autocomplete'=>'off']) }}
+            {{ Form::text('contact',null,['id'=>'contact','autocomplete'=>'off', 'placeholder'=>'วิธีการติดต่อผู้ประสานงานกิจกรรม']) }}
         </div>
 
 
@@ -107,7 +106,7 @@
         {{ Form::label('img','รูปภาพ *** รอบรับไฟล์สกุล jpg,jpeg,png,gif') }}
         {{ Form::file('img') }}
     </div>
-    {{ Form::submit('เพิ่ม',array('class'=>'ui submit teal button')) }}
+    {{ Form::submit('บันทึก',array('class'=>'ui submit teal button')) }}
 
     {{ Form::close() }}
     @stop

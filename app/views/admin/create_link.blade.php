@@ -42,7 +42,7 @@
                                 <div class="header">{{ Session::get('message') }}</div>
                             </div>
                         @endif
-                        <div class="two fields">
+
                             <div class="required field">
                                 {{ Form::label('name','ชื่อจุดเชื่อมโยง(Link)') }}
                                 {{ Form::text('name',null,['placeholder'=>'ชื่อจุดเชื่อมโยง(Link)']) }}
@@ -51,11 +51,11 @@
                                 {{ Form::label('link','ที่อยู่จุดเชื่อมโยง(URL)') }}
                                 {{ Form::text('link',null,['placeholder'=>'Link address']) }}
                             </div>
-                        </div>
+
 
 
                         <div class="field" >
-                            {{ Form::label('usercategories','หมวดหมู่กลุ่มผู้ใช้') }}
+                            {{ Form::label('usercategories','กลุ่มผู้ใช้') }}
                             <select class="ui" name="usercategories" id="usercategories">
                                 <option value=""></option>
                             </select>
@@ -98,7 +98,7 @@
             <select class="ui" name="org" id="org">
                 <option value=""></option>
             </select>
-                <br><br><b><i>***หากไม่มีหน่วยงานที่ท่านค้นหา ให้กดปุ่มเพิ่มหน่วยงาน:</i></b>
+                <br><br><i>***หากไม่มีหน่วยงานที่ท่านค้นหา กดปุ่มเพิ่มหน่วยงาน:</i>
                 <a class="ui green button" href="{{URL::to('/admin/gov/create')}}">เพิ่มหน่วยงาน</a>
         </div>
 
@@ -117,7 +117,7 @@
                         </div>
 
                         <div class="field">
-                            {{ Form::label('middlecategories','หมวดหมู่รอง') }}
+                            {{ Form::label('middlecategories','หมวดหมู่ย่อย') }}
                             <select class="ui" name="middlecategories" id="middlecategories">
                                 <option value=""></option>
                             </select>
@@ -142,20 +142,20 @@
                     <i class="close icon"></i>
                     <div class="header">
                         <i class="settings icon"></i>
-                        จัดการหมวดหมู่กลุ่มผู้ใช้
+                        จัดการกลุ่มผู้ใช้
                     </div>
                     <div class="content">
                         <div class="ui green dividing header">
                             <i class="settings icon"></i>
                             <div class="content">
-                                เพิ่มหมวดหมู่
+                                เพิ่มกลุ่มผู้ใช้
 
                             </div>
 
                             {{ Form::open(array('data-remote','class'=>'ui form green segment','id'=>'form_uc')) }}
                             <div class="field">
-                                {{ Form::label('name','ชื่อ :') }}
-                                {{ Form::text('name',null,['placeholder'=>'กรอกชื่อหมวดหมู่'])}}
+                                {{ Form::label('name','ชื่อกลุ่มผู้ใช้ :') }}
+                                {{ Form::text('name',null,['placeholder'=>'กรอกชื่อกลุ่มผู้ใช้'])}}
                             </div>
 
                             {{ Form::submit('เพิ่ม',['class'=>'ui green button']) }}
@@ -171,9 +171,9 @@
                         <div class="ui red dividing header">
                             <i class="settings icon"></i>
                             <div class="content">
-                                แก้ไขหมวดหมู่
+                                แก้ไขกลุ่มผู้ใช้
                             </div>
-                            {{ Form::label('uc','เลือกหมวดหมู่ที่ต้องการแก้ไข : ') }}
+                            {{ Form::label('uc','เลือกกลุ่มผู้ใช้ที่ต้องการแก้ไข : ') }}
                             <select class="ui" name="uc" id="uc">
                                 <option value=""></option>
                             </select>
@@ -181,7 +181,7 @@
                                  {{ Form::hidden('target','usercategory') }}
                                  {{ Form::hidden('id',null) }}
                                 <div class="field">
-                                    {{ Form::label('name','ชื่อ :') }}
+                                    {{ Form::label('name','ชื่อกลุ่มผู้ใช้ :') }}
                                     {{ Form::text('name',null,['style'=>'  width: 85%;'])}}
                                     <a id="del_form_uc" class="ui red button">ลบ</a>
                                 </div>
@@ -210,15 +210,18 @@
                         <div class="ui green dividing header">
                             <i class="settings icon"></i>
                             <div class="content">
-                                เพิ่มหมวดหมู่
+                                เพิ่มหมวดหมู่หลัก
 
                             </div>
                         {{ Form::open(array('data-remote','class'=>'ui form green segment','id'=>'form_mjc')) }}
 
                         <div class="field">
-                            {{ Form::label('name','ชื่อ :') }}
-                            {{ Form::text('name',null,['placeholder'=>'กรอกชื่อหมวดหมู่'])}}
-                        </div>
+                            {{ Form::label('name','ชื่อหมวดหมู่หลัก :') }}
+                            {{ Form::text('name',null,['placeholder'=>'กรอกชื่อหมวดหมู่หลัก'])}}
+
+                            {{ Form::label('user_categories_id','กลุ่มผู้ใช้ :') }}
+                            {{Form::select('user_categories_id',$ucs)}}
+
 
                         {{ Form::submit('เพิ่ม',['class'=>'ui green button']) }}
 
@@ -233,9 +236,9 @@
                         <div class="ui red dividing header">
                             <i class="settings icon"></i>
                             <div class="content">
-                                แก้ไขหมวดหมู่
+                                แก้ไขหมวดหมู่หลัก
                             </div>
-                            {{ Form::label('mjc','เลือกหมวดหมู่ที่ต้องการแก้ไข : ') }}
+                            {{ Form::label('mjc','เลือกหมวดหมู่หลักที่ต้องการแก้ไข : ') }}
                             <select class="ui" name="mjc" id="mjc">
                                 <option value=""></option>
 
@@ -244,7 +247,7 @@
                             {{ Form::hidden('target','majorcategory') }}
                             {{ Form::hidden('id',null) }}
                             <div class="field">
-                                {{ Form::label('user_categories_id','เลือกหมวดหมู่กลุ่มผู้ใช้ : ') }}
+                                {{ Form::label('user_categories_id','เลือกกลุ่มผู้ใช้ : ') }}
                                 <select class="ui" name="user_categories_id" id="user_categories_id">
                                     <option value=""></option>
                                 </select>
@@ -273,20 +276,25 @@
                     <i class="close icon"></i>
                     <div class="header">
                         <i class="settings icon"></i>
-                        จัดการหมวดหมู่รอง
+                        จัดการหมวดหมู่ย่อย
                     </div>
                     <div class="content">
                         <div class="ui green dividing header">
                             <i class="settings icon"></i>
                             <div class="content">
-                                เพิ่มหมวดหมู่
+                                เพิ่มหมวดหมู่ย่อย
 
                             </div>
                         {{ Form::open(array('data-remote','class'=>'ui form green segment','id'=>'form_mdc')) }}
                         <div class="field">
 
                             {{ Form::label('name','ชื่อ :') }}
-                            {{ Form::text('name',null,['placeholder'=>'กรอกชื่อหมวดหมู่'])}}
+                            {{ Form::text('name',null,['placeholder'=>'กรอกชื่อหมวดหมู่ย่อย'])}}
+
+                            {{ Form::label('major_categories_id','เลือกหมวดหมู่หลัก :') }}
+                            {{Form::select('major_categories_id',$mjs)}}
+
+
                         </div>
 
                         {{ Form::submit('เพิ่ม',['class'=>'ui green button']) }}
@@ -301,9 +309,9 @@
                         <div class="ui red dividing header">
                             <i class="settings icon"></i>
                             <div class="content">
-                                แก้ไขหมวดหมู่
+                                แก้ไขหมวดหมู่ย่อย
                             </div>
-                            {{ Form::label('mdc','เลือกหมวดหมู่ที่ต้องการแก้ไข : ') }}
+                            {{ Form::label('mdc','เลือกหมวดหมู่ย่อยที่ต้องการแก้ไข : ') }}
                             <select class="ui" name="mdc" id="mdc">
                                 <option value=""></option>
                             </select>
@@ -312,12 +320,13 @@
                             {{ Form::hidden('id',null) }}
                             <div class="field">
                                 {{ Form::label('major_categories_id','เลือกหมวดหมู่หลัก :  ') }}
-                                <select class="ui" name="major_categories_id" id="major_categories_id">
-                                    <option value=""></option>
-                                </select>
+
+
+                                {{Form::select('major_categories_id',$mjs)}}
+
                             </div>
                             <div class="field">
-                                {{ Form::label('name','ชื่อ :') }}
+                                {{ Form::label('name','ชื่อหมวดหมู่ย่อย :') }}
                                 {{ Form::text('name',null,['style'=>'  width: 85%;'])}}
                                 <a id="del_form_mdc" class="ui red button">ลบ</a>
                             </div>

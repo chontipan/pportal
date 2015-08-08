@@ -154,19 +154,19 @@
     <script>
 
     jQuery(function($) {
-            jQuery('body').on('change','#location',function(){
-                jQuery.ajax({
-                    'type':'POST',
-                    'url':'filter_events',
-                    'cache':false,
-                    'data': {location:$("#location").val()},
-                    'success':function(html){
-                        $("#display").html(html);
-                    }
-                });
-                return false;
+        jQuery('body').on('change','#location',function(){
+            jQuery.ajax({
+                'type':'POST',
+                'url':'filter_events',
+                'cache':false,
+                'data': {location:$("#location").val()},
+                'success':function(html){
+                    $("#display").html(html);
+                }
             });
+            return false;
         });
+    });
 
         jQuery(function($) {
                 jQuery('body').on('change','#location2',function(){

@@ -52,6 +52,9 @@ Route::get('/events/{id}/show','HomeController@getEvent');
 Route::post('/filter_events','HomeController@filterEvents');
 Route::get('/filter_events','HomeController@filterEvents');
 
+Route::post('/admin/filter_links','AdminController@filterLinks');
+Route::get('/admin/filter_links','AdminController@filterLinks');
+
 Route::post('/filter_events2','HomeController@filterEvents2');
 Route::get('/filter_events2','HomeController@filterEvents2');
 

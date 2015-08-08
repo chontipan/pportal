@@ -37,36 +37,40 @@
                 <h3>เมนู</h3>
                 <div class="ui vertical red menu">
 
-                    <a class="{{ Request::path()=='admin/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/manage') }}">
-                        <i class="grid layout icon"></i> จัดการจุดเชื่อมโยง(Link)
-                    </a>
                     <a class="{{ Request::path()=='admin/link/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/link/create') }}">
                         <i class="add square icon"></i> เพิ่มจุดเชื่อมโยง(Link)
                     </a>
+                    <a class="{{ Request::path()=='admin/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/manage') }}">
+                        <i class="grid layout icon"></i> จัดการจุดเชื่อมโยง(Link)
+                    </a>
+
                     <hr style="background-color: rgb(224, 55, 75);height: 3px">
                     {{--EVENTS--}}
-                    <a class="{{ Request::path()=='admin/events/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/events/manage') }}">
-                        <i class="grid layout icon"></i> จัดการกิจกรรม(Event)
-                    </a>
                     <a class="{{ Request::path()=='admin/events/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/events/create') }}">
                         <i class="add square icon"></i> เพิ่มกิจกรรม(Event)
                     </a>
+                    <a class="{{ Request::path()=='admin/events/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/events/manage') }}">
+                        <i class="grid layout icon"></i> จัดการกิจกรรม(Event)
+                    </a>
+
                     <hr style="background-color: rgb(224, 55, 75);height: 3px">
                     {{--Gov--}}
-                    <a class="{{ Request::path()=='admin/gov/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/gov/manage') }}">
-                        <i class="grid layout icon"></i> จัดการหน่วยงาน
-                    </a>
                     <a class="{{ Request::path()=='admin/gov/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/gov/create') }}">
-                        <i class="add square icon"></i> เพิ่มหน่วยงาน
+                        <i class="add square icon"></i> เพิ่มหน่วยงาน<br>(บริการภาครัฐ)
                     </a>
+                    <a class="{{ Request::path()=='admin/gov/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/gov/manage') }}">
+                        <i class="grid layout icon"></i> จัดการหน่วยงาน<br>(บริการภาครัฐ)
+                    </a>
+
                     <hr style="background-color: rgb(224, 55, 75);height: 3px">
                     {{--Recommend--}}
-                    <a class="{{ Request::path()=='admin/recommend/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/recommend/manage') }}">
-                        <i class="grid layout icon"></i> จัดการ&nbsp;จุดเชื่อมโยงแนะนำ
-                    </a>
                     <a class="{{ Request::path()=='admin/recommend/create' ? 'active' : '' }} item" href="{{ URL::to('/admin/recommend/create') }}">
-                        <i class="add square icon"></i> เพิ่ม&nbsp;จุดเชื่อมโยงแนะนำ
+                        <i class="add square icon"></i> เพิ่ม&nbsp;จุดเชื่อมโยงแนะนำ<br>(ท่องเที่ยว)
                     </a>
+                    <a class="{{ Request::path()=='admin/recommend/manage' ? 'active' : '' }} item" href="{{ URL::to('/admin/recommend/manage') }}">
+                        <i class="grid layout icon"></i> จัดการ&nbsp;จุดเชื่อมโยงแนะนำ<br>(ท่องเที่ยว)
+                    </a>
+
                     <hr style="background-color: rgb(224, 55, 75);height: 3px">
                     <a class="{{ Request::path()=='admin/logout' ? 'active' : '' }} red item" href="{{ URL::to('/admin/logout') }}">
                         <i class="sign out icon"></i> ออกจากระบบ
