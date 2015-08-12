@@ -22,6 +22,7 @@
                         <ul style="list-style: none; float: left;  padding: 0px 0px 0px 20px;" class="nav-tabs" role="tablist" id="myTab">
                             @foreach($ucs as $data)
                                 @if($data->name == "บริการภาครัฐ")
+
                                     <?php $g=0;?>
                                     @foreach($data->MajorCategories as $mjc) <?php $g++;?>
                                     <li role="presentation" class="{{ $g==1 ? 'active' : '' }}"  data-toggle="tooltip" data-placement="bottom" title="{{$mjc->name}}">
@@ -43,7 +44,9 @@
                             <div role="tabpanel">
                                 <!-- Tab panes -->
                                 <div class="tab-content">
+
                                     @foreach($ucs as $data)
+
                                         @if($data->name == "บริการภาครัฐ")
                                             <?php $g=0;?>
                                             @foreach($data->MajorCategories as $mjc) <?php $g++;?>
@@ -51,8 +54,9 @@
                                                 <?php $h=0;?>
                                                 <div class="row">
                                                     @foreach($mjc->MiddleCategories as $mdc)
+
                                                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                                            <a href="{{URL::to('/category/'.$mdc->id.'/update')}}">
+                                                            <a href="{{URL::to('/category/'.$mdc->id.'/show')}}">
                                                                 <div class="media">
                                                                     <div class="media-left pull-left">
                                                                         <img class="media-object" src="<?php echo Config::get('app.subdir')?>/images/middle/{{$mdc->id}}.png" alt="">

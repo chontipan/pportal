@@ -57,6 +57,7 @@
                                    จัดการ
                                </th>
                            </tr></thead><tbody>
+
                            <?php $i=0; foreach($links as $link): $i++;?>
                            <tr>
                                <td><?php echo $i;?></td>
@@ -72,9 +73,6 @@
                                <td>
                                    {{ $link->MiddleCategories->name}}
                                </td>
-
-
-
                                <td>
                                    {{ $link->frequency}}
                                </td>

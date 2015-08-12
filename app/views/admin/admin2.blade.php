@@ -60,6 +60,7 @@
                                    จัดการ
                                </th>
                            </tr></thead><tbody>
+                           <?php //var_dump($links);?>
                            <?php $i=0; foreach($links as $link): $i++;?>
                            <tr>
                                <td><?php echo $i;?></td>
@@ -79,7 +80,7 @@
 
 
                                <td>
-                                   {{ $link->frequency}}
+                                {{$link->frequency}}
                                </td>
                                <td class="collapsing">
                                    <a href="{{Config::get('app.subdir')}}/admin/link/{{$link->id}}/show"><i class="search teal icon"></i></a>

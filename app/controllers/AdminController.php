@@ -248,6 +248,7 @@ class AdminController extends BaseController {
     public function getManage(){
 
         $data = Link::orderBy('middle_categories_id', 'DESC')->get();
+        //var_dump($data);
         return View::make('admin.admin1')->with('links',$data);
     }
 
@@ -610,13 +611,25 @@ class AdminController extends BaseController {
 
         if($ucs<0){
             $data = Link::orderBy('middle_categories_id', 'DESC')->get();
-
-
             }else{
-            $data = Link::orderBy('middle_categories_id', 'DESC')->get();
-            //$data2 = MajorCategories::where('user_categories_id',$ucs)->get();
-            //$data = Link::where('middle_categories_id',$ucs)->get();
-            //$link->MiddleCategories->MajorCategories->UserCategories->name
+
+            //$data = Link::get();
+           $data = Link::Join('middlecategories', 'links.middle_categories_id', '=', 'middlecategories.id')
+               ->Join('majorcategories', 'middlecategories.major_categories_id', '=', 'majorcategories.id')
+               ->Join('usercategories', 'majorcategories.user_categories_id', '=', 'usercategories.id')
+               ->where('usercategories.id',$ucs)
+                ->get();
+
+
+           // $data = Link::find(1)->MiddleCategories()->MajorCategories()->UserCategories()->first();
+
+
+
+
+
+
+
+
         }
         return View::make('admin.admin2')->with('links',$data);
 

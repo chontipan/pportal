@@ -38,7 +38,7 @@ Route::resource('sessions', 'SessionsController');
 Route::get('/','HomeController@getIndex');
 //หมวดหมู่
 Route::get('/categories','HomeController@getCategories');
-Route::get('/category/{id}/update','HomeController@getCategory');
+Route::get('/category/{id}/show','HomeController@getCategory');
 Route::get('/category/{id}/most','HomeController@getCategory');
 Route::get('/category/link/{id}/show','HomeController@getCategoryLink');
 //หน่วยงาน
