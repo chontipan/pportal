@@ -53,7 +53,9 @@
                                             <div role="tabpanel" class="tab-pane{{ $g==1 ? ' active' : '' }}" id="tab_{{$g}}">
                                                 <?php $h=0;?>
                                                 <div class="row">
+                                                    <?php $dd = Link::get();?>
                                                     @foreach($mjc->MiddleCategories as $mdc)
+
 
                                                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                                                             <a href="{{URL::to('/category/'.$mdc->id.'/show')}}">

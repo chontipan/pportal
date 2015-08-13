@@ -614,12 +614,21 @@ class AdminController extends BaseController {
             }else{
 
             //$data = Link::get();
-           $data = Link::Join('middlecategories', 'links.middle_categories_id', '=', 'middlecategories.id')
-               ->Join('majorcategories', 'middlecategories.major_categories_id', '=', 'majorcategories.id')
-               ->Join('usercategories', 'majorcategories.user_categories_id', '=', 'usercategories.id')
-               ->where('usercategories.id',$ucs)
-                ->get();
+//           $data = Link::Join('middlecategories', 'links.middle_categories_id', '=', 'middlecategories.id')
+//               ->Join('majorcategories', 'middlecategories.major_categories_id', '=', 'majorcategories.id')
+//               ->Join('usercategories', 'majorcategories.user_categories_id', '=', 'usercategories.id')
+//               ->where('usercategories.id',$ucs)
+//                ->get();
 
+            $link = Link::whereHas('MiddleCategories',function($q) use ($ucs){
+                $q->whereHas('MajorCategories',function($q2) use ($ucs){
+                    $q2->whereHas('UserCategories',function($q3) use ($ucs){
+                        $q3->where('id','=',$ucs);
+                    });
+                });
+            })->get();
+
+            $data = $link;
 
            // $data = Link::find(1)->MiddleCategories()->MajorCategories()->UserCategories()->first();
 

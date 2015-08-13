@@ -187,3 +187,20 @@ Route::get('/users/add','UserController@getAdd');
 Route::post('/users/add','UserController@postAdd');
 Route::get('/users/{id}/update','UserController@getUpdate');
 Route::post('/users/{id}/update','UserController@postUpdate');*/
+
+
+Route::get('test1',function(){
+
+    $ucs = 10;
+
+    $link = Link::whereHas('MiddleCategories',function($q) use ($ucs){
+        $q->whereHas('MajorCategories',function($q2) use ($ucs){
+            $q2->whereHas('UserCategories',function($q3) use ($ucs){
+                $q3->where('id','=',$ucs);
+            });
+        });
+    })->get();
+
+    return $link;
+
+});
