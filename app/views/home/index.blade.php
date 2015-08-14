@@ -108,7 +108,7 @@
 <div id="slide1" class="slide">
     <div class="container" id="trip" style="margin-bottom: 10px">
         <div class="travel">
-            <div class="row terminal">
+            <div class="row terminal" >
                 <div class="col-md-12" style="padding-left: 1px;padding-right: 1px">
                     <div class="title-top">
                         <div class="title">
